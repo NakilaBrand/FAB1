@@ -3,6 +3,14 @@ package fr.ginc.fab1.bean;
 public class Utilisateur {
 	private String email;
 	private String mdp;
+	private String nom;
+	
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -15,11 +23,7 @@ public class Utilisateur {
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
 	}
-	public Utilisateur(String email, String mdp) {
-		super();
-		this.email = email;
-		this.mdp = mdp;
-	}
+	
 	public Utilisateur() {
 		
 	}
