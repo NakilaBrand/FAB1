@@ -1,6 +1,7 @@
 package fr.ginc.fab1.bean;
 
 
+
 @javax.persistence.Entity
 
 public class Utilisateur implements java.io.Serializable
@@ -105,5 +106,6 @@ public class Utilisateur implements java.io.Serializable
         return this.restaurantPrefere;
     }
     
+
 }
 

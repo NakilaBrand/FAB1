@@ -48,9 +48,9 @@ public final class ConnexionForm {
 
 		/* Initialisation du résultat global de la validation. */
 		if (erreurs.isEmpty()) {
-			resultat = "Succès de la connexion.";
+			resultat = "Succes de la connexion.";
 		} else {
-			resultat = "Échec de la connexion.";
+			resultat = "Echec de la connexion.";
 		}
 
 		return utilisateur;
@@ -71,7 +71,7 @@ public final class ConnexionForm {
 	private void validationMotDePasse(String motDePasse) throws Exception {
 		if (motDePasse != null) {
 			if (motDePasse.length() < 5) {
-				throw new Exception("Le mot de passe doit contenir au moins 5 caractères.");
+				throw new Exception("Le mot de passe doit contenir au moins 5 caracteres.");
 			}
 		} else {
 			throw new Exception("Merci de saisir votre mot de passe.");
