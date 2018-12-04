@@ -11,6 +11,27 @@
     text-align: center;
 }
 
+ul {
+    list-style-type: none;
+    position: sticky;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: inline-block;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
 #button {
     padding: 15px;
     text-align: center;
@@ -52,15 +73,14 @@
 
 .plats__title {
     color: black;
-    font-size: 15px;
+    font-size: 25px;
     margin: 15px 0;
-    text-transform: uppercase;
-    text-align: center;
+    text-align: left;
 }
 
 .plat {
-    margin: 15px 0;
-    padding: 15px 0 60px;
+    margin: 15px;
+    padding: 15px;
     position: relative;
     text-align: center;
 }
