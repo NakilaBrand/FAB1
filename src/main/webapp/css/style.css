@@ -1,0 +1,25 @@
+.header{
+    background: transparent url("http://sushi-recette.fr/wp-content/uploads/2014/12/fond-ardoise.jpg") no-repeat center bottom;
+    color: white;
+    background-size: cover;
+    margin-bottom: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+#logo {
+    text-align: center;
+}
+
+.topnav {
+    align: center;
+
+}
+
+.footer {
+    background: transparent url("http://sushi-recette.fr/wp-content/uploads/2014/12/fond-ardoise.jpg") no-repeat center bottom;
+    background-size: cover;
+    color: #fff;
+    margin-top: 15px;
+    text-align: right;
+}
