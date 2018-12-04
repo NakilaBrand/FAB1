@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import fr.ginc.fab1.bean.Commande;
 import fr.ginc.fab1.dao.GenericDao;
 import fr.ginc.fab1.dao.GenericDaoImpl;
+import fr.ginc.fab1.exception.DAOException;
 
 @Path("/commandes")
 public class CommandeManager {
@@ -32,7 +33,7 @@ public class CommandeManager {
 	
 	@GET
 	@Path("/{id:\\d+}")
-	public Commande obtenirCommande(@PathParam("id") int id)
+	public Commande getCommande(@PathParam("id") int id)
 	{
 		return genericDao.findById(Commande.class, id);
 	}
@@ -43,8 +44,8 @@ public class CommandeManager {
 	{
 		try {
 			genericDao.add(Commande);
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (DAOException e) {
+			new DAOException("La commande n'a pas été prise en compte");
 		}
 		return Commande;
 	}

@@ -3,8 +3,10 @@ package fr.ginc.fab1.dao;
 
 import java.util.List;
 
+import fr.ginc.fab1.exception.DAOException;
+
 public interface GenericDao<T, U> {
-	public void add(T t) throws Exception;
+	public void add(T t) throws DAOException;
 
 	public void delete(T t) throws Exception;
 

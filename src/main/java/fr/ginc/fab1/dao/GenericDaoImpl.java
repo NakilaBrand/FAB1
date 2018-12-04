@@ -6,9 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+import fr.ginc.fab1.exception.DAOException;
+
 public class GenericDaoImpl<T, U> implements GenericDao<T, U> {
 
-	public void add(T t) throws Exception {
+	public void add(T t) throws DAOException {
 		EntityManager em = DAOUtil.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		et.begin();
