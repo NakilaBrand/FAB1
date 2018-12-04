@@ -4,5 +4,6 @@ import javax.ws.rs.Path;
 
 @Path("/plats")
 public class PlatManager {
+	
 
 }

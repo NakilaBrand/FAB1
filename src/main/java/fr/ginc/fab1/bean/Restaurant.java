@@ -11,17 +11,17 @@ public class Restaurant implements java.io.Serializable
 
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private java.lang.Integer id;
+    private Integer id;
     
-    private java.lang.String nom;
+    private String nom;
     
-    private java.lang.String adresse;
+    private String adresse;
     
-    private java.lang.String codePostal;
+    private String codePostal;
     
-    private java.lang.String ville;
+    private String ville;
     
-    private java.lang.String telephone;
+    private String telephone;
     
 
     
@@ -30,17 +30,20 @@ public class Restaurant implements java.io.Serializable
     	fetch = javax.persistence.FetchType.LAZY
     )
     java.util.Collection<Plat> plats;
+    
     @javax.persistence.ManyToMany(
         cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
     java.util.Collection<TrancheHoraire> tranchehoraire;
+    
     @javax.persistence.OneToMany(
         mappedBy = "restaurant",
     	cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
     java.util.Collection<Reservation> reservation;
+    
     @javax.persistence.OneToMany(
         cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
@@ -48,57 +51,57 @@ public class Restaurant implements java.io.Serializable
     java.util.Collection<Commande> commande;
 
     
-    public void setId(java.lang.Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     
     
-    public java.lang.Integer getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setNom(java.lang.String nom) {
+    public void setNom(String nom) {
         this.nom = nom;
     }
     
     
-    public java.lang.String getNom() {
+    public String getNom() {
         return this.nom;
     }
     
-    public void setAdresse(java.lang.String adresse) {
+    public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
     
     
-    public java.lang.String getAdresse() {
+    public String getAdresse() {
         return this.adresse;
     }
     
-    public void setCodePostal(java.lang.String codePostal) {
+    public void setCodePostal(String codePostal) {
         this.codePostal = codePostal;
     }
     
     
-    public java.lang.String getCodePostal() {
+    public String getCodePostal() {
         return this.codePostal;
     }
     
-    public void setVille(java.lang.String ville) {
+    public void setVille(String ville) {
         this.ville = ville;
     }
     
     
-    public java.lang.String getVille() {
+    public String getVille() {
         return this.ville;
     }
     
-    public void setTelephone(java.lang.String telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
     
     
-    public java.lang.String getTelephone() {
+    public String getTelephone() {
         return this.telephone;
     }
     
