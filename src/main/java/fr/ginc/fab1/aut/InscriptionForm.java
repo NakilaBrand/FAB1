@@ -45,7 +45,7 @@ public final class InscriptionForm {
 			setErreur(CHAMP_PASS, e.getMessage());
 			setErreur(CHAMP_CONF, null);
 		}
-		utilisateur.setMdp(motDePasse);
+		utilisateur.setPassword(motDePasse);
 
 		try {
 			validationNom(nom);
