@@ -29,7 +29,7 @@ public class Plat implements java.io.Serializable
         cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
-    java.util.Collection<Commentaire> commentaires;
+    java.util.List commentaires;
 
     
     public void setId(java.lang.Integer id) {
@@ -88,12 +88,12 @@ public class Plat implements java.io.Serializable
     
 
     
-    public void setCommentaires(java.util.Collection<Commentaire> commentaires) {
+    public void setCommentaires(java.util.List<Commentaire> commentaires) {
         this.commentaires = commentaires;
     }
     
     
-    public java.util.Collection<Commentaire> getCommentaires() {
+    public java.util.List<Commentaire> getCommentaires() {
         return this.commentaires;
     }
     

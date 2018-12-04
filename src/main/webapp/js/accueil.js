@@ -8,6 +8,10 @@
 		pdm.innerHTML = "";
 		pdm.innerHTML = plat.description;
 		
+		var nomPlat = document.getElementById('nomPlat');
+		nomPlat.innerHTML = "";
+		nomPlat.innerHTML = plat.nom;
+		
         var photoPlat = document.getElementById('photo');
         photoPlat.setAttribute('src',plat.imageURL);
 

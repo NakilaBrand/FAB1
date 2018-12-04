@@ -25,7 +25,7 @@ public class Restaurant implements java.io.Serializable
     
 
     
-    @javax.persistence.OneToMany(
+    @javax.persistence.ManyToMany(
         cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
