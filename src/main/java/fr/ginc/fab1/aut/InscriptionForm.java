@@ -1,6 +1,8 @@
 package fr.ginc.fab1.aut;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,12 +13,15 @@ import fr.ginc.fab1.dao.GenericDaoImpl;
 
 public final class InscriptionForm {
 	private static final String CHAMP_EMAIL = "email";
-	private static final String CHAMP_PASS = "motdepasse";
+	private static final String CHAMP_PASS = "password";
 	private static final String CHAMP_CONF = "confirmation";
 	private static final String CHAMP_NOM = "nom";
+	private static final String CHAMP_PRENOM = "prenom";
+	private static final String CHAMP_TEL = "telephone";
 
 	private String resultat;
 	private Map<String, String> erreurs = new HashMap<String, String>();
+	private List<String> listErreurs = new ArrayList<>();
 	private GenericDao<Utilisateur, String> dao = new GenericDaoImpl<>();
 
 	public String getResultat() {
@@ -26,12 +31,17 @@ public final class InscriptionForm {
 	public Map<String, String> getErreurs() {
 		return erreurs;
 	}
+	public List<String> getListErreurs() {
+		return listErreurs;
+	}
 
 	public Utilisateur inscrireUtilisateur(HttpServletRequest request) {
 		String email = getValeurChamp(request, CHAMP_EMAIL);
 		String motDePasse = getValeurChamp(request, CHAMP_PASS);
 		String confirmation = getValeurChamp(request, CHAMP_CONF);
 		String nom = getValeurChamp(request, CHAMP_NOM);
+		String prenom = getValeurChamp(request, CHAMP_PRENOM);
+		String tel = getValeurChamp(request, CHAMP_TEL);
 
 		Utilisateur utilisateur = new Utilisateur();
 
@@ -39,6 +49,8 @@ public final class InscriptionForm {
 			validationEmail(email);
 		} catch (Exception e) {
 			setErreur(CHAMP_EMAIL, e.getMessage());
+			listErreurs.add("Veuillez renseigner un email valide");
+			
 		}
 		utilisateur.setEmail(email);
 
@@ -53,9 +65,28 @@ public final class InscriptionForm {
 		try {
 			validationNom(nom);
 		} catch (Exception e) {
+			listErreurs.add("Veuillez renseigner un nom valide");
 			setErreur(CHAMP_NOM, e.getMessage());
 		}
 		utilisateur.setNom(nom);
+		
+		try {
+			validationNom(prenom);
+		} catch (Exception e) {
+			listErreurs.add("Veuillez renseigner un prenom valide");
+			setErreur(CHAMP_NOM, e.getMessage());
+		}
+		utilisateur.setPrenom(prenom);
+		
+		try {
+			validationTel(tel);
+		} catch (Exception e) {
+			listErreurs.add("Veuillez renseigner un numero de tel valide");
+			setErreur(CHAMP_TEL, e.getMessage());
+		}
+		utilisateur.setTelephone(tel);
+		utilisateur.setIsAdmin(false);
+		
 
 		if (erreurs.isEmpty()) {
 			if (dao.findByAttr(Utilisateur.class, "email", utilisateur.getEmail()) == null) {
@@ -78,6 +109,15 @@ public final class InscriptionForm {
 		return utilisateur;
 	}
 
+	private void validationTel(String tel)  throws Exception{
+		
+		Integer.parseInt(tel);
+		if(tel.length() != 10){
+			throw new Exception("Merci de saisir un numero de telephone valide.");
+		}
+		
+	}
+
 	private void validationEmail(String email) throws Exception {
 		if (email != null) {
 			if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
@@ -91,8 +131,11 @@ public final class InscriptionForm {
 	private void validationMotsDePasse(String motDePasse, String confirmation) throws Exception {
 		if (motDePasse != null && confirmation != null) {
 			if (!motDePasse.equals(confirmation)) {
-				throw new Exception("Les mots de passe entrés sont differents, merci de les saisir à nouveau.");
+				listErreurs.add("Les mots de passe entres sont differents, merci de les saisir à nouveau.");
+				throw new Exception("Les mots de passe entres sont differents, merci de les saisir à nouveau.");
+				
 			} else if (motDePasse.length() < 5) {
+				listErreurs.add("Les mots de passe doivent contenir au moins 5 caracteres.");
 				throw new Exception("Les mots de passe doivent contenir au moins 5 caracteres.");
 			}
 		} else {

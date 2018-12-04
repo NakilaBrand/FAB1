@@ -7,13 +7,17 @@ import javax.servlet.http.HttpServletRequest;
 //
 
 import fr.ginc.fab1.bean.Utilisateur;
+import fr.ginc.fab1.dao.GenericDao;
+import fr.ginc.fab1.dao.GenericDaoImpl;
 
 public final class ConnexionForm {
 	private static final String CHAMP_EMAIL = "email";
-	private static final String CHAMP_PASS = "motdepasse";
+	private static final String CHAMP_PASS = "password";
 
 	private String resultat;
 	private Map<String, String> erreurs = new HashMap<String, String>();
+	private GenericDao<Utilisateur, String> daoString = new GenericDaoImpl<>();
+	//private GenericDao<Utilisateur, Integer> daoInt = new GenericDaoImpl<>();
 
 	public String getResultat() {
 		return resultat;
@@ -23,12 +27,12 @@ public final class ConnexionForm {
 		return erreurs;
 	}
 
-	public Utilisateur connecterUtilisateur(HttpServletRequest request) {
+	public Utilisateur connecterUtilisateur(HttpServletRequest request) throws Exception {
 		/* Récupération des champs du formulaire */
 		String email = getValeurChamp(request, CHAMP_EMAIL);
 		String motDePasse = getValeurChamp(request, CHAMP_PASS);
 
-		Utilisateur utilisateur = new Utilisateur();
+		Utilisateur utilisateur;
 
 		/* Validation du champ email. */
 		try {
@@ -36,7 +40,6 @@ public final class ConnexionForm {
 		} catch (Exception e) {
 			setErreur(CHAMP_EMAIL, e.getMessage());
 		}
-		utilisateur.setEmail(email);
 
 		/* Validation du champ mot de passe. */
 		try {
@@ -44,7 +47,6 @@ public final class ConnexionForm {
 		} catch (Exception e) {
 			setErreur(CHAMP_PASS, e.getMessage());
 		}
-		utilisateur.setPassword(motDePasse);
 
 		/* Initialisation du résultat global de la validation. */
 		if (erreurs.isEmpty()) {
@@ -52,6 +54,18 @@ public final class ConnexionForm {
 		} else {
 			resultat = "Echec de la connexion.";
 		}
+		utilisateur = daoString.findByAttr(Utilisateur.class, "email", email);
+		
+		
+		//TODO need mdp crypté
+		if(utilisateur != null && !utilisateur.getPassword().trim().equals(motDePasse.trim())){
+			System.out.println("movai mdp");
+			throw new Exception("Mot de passe defectueux !! bip bip");
+		}
+		System.out.println(utilisateur.getPassword());
+		System.out.println("---------------------------------------\n"
+				+ "Vous etes co en tant que "
+				+ utilisateur.getNom() + " " + utilisateur.getPrenom());
 
 		return utilisateur;
 	}

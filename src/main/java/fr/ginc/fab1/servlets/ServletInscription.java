@@ -26,26 +26,20 @@ public class ServletInscription extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		Utilisateur u = new Utilisateur();
-		u.setEmail("blabla@gmail.com");
-		u.setNom("Mousserion");
-		u.setPassword("12345");
-		GenericDao<Utilisateur, Integer> daoI = new GenericDaoImpl<>();
-		GenericDao<Utilisateur, String> daoS = new GenericDaoImpl<>();
+		InscriptionForm form = new InscriptionForm();
 		
-		try {
-			daoI.add(u);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		/* Traitement de la requête et récupération du bean en résultant */
+		Utilisateur utilisateur = form.inscrireUtilisateur(request);
+
+		/* Récupération de la session depuis la requête */
+		HttpSession session = request.getSession();
+		
+		if (form.getErreurs().isEmpty()) {
+			session.setAttribute("utilisateur", utilisateur);
+		} else {
+			session.setAttribute("utilisateur", null);
 		}
-//		InscriptionForm form = new InscriptionForm();
-//		
-//		/* Traitement de la requête et récupération du bean en résultant */
-//		Utilisateur utilisateur = form.inscrireUtilisateur(request);
-//
-//		/* Récupération de la session depuis la requête */
-//		HttpSession session = request.getSession();
+		
 
 		
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
