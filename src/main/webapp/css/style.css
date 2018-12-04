@@ -32,6 +32,52 @@ li a {
     text-decoration: none;
 }
 
+form {
+    /* Uniquement centrer le formulaire sur la page */
+    margin: 5px auto;
+    width: 50%;
+}
+
+label {
+    /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+}
+
+input {
+    /* Pour s'assurer que tous les champs texte ont la même police.
+       Par défaut, les textarea ont une police monospace */
+    font: 1em sans-serif;
+
+    /* Pour que tous les champs texte aient la même dimension */
+    width: 200px;
+    box-sizing: border-box;
+
+    /* Pour harmoniser le look & feel des bordures des champs texte */
+    border: 1px solid #999;
+}
+.main{
+    text-align: center;
+}
+#alertmail, #alertpassword, #alertphone {
+    visibility: hidden;
+    display: inline-block;
+    font: 1em sans-serif;
+    margin-left: 10px;
+
+    /* Pour que tous les champs texte aient la même dimension */
+    width: 150px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+
+}
+
+input:focus     {
+    /* Pour souligner légèrement les éléments actifs */
+    border-color: #000;
+}
+
 #button {
     padding: 15px;
     text-align: center;
@@ -56,6 +102,19 @@ li a {
     border-radius:2px;
     width:100px;
     border:1px solid #ccc;
+}
+
+.buttonsubmit, .buttoninscr {
+    padding:6px 0 6px 0;
+    font:bold 13px Arial;
+    background:#f5f5f5;
+    color:#555;
+    border-radius:2px;
+    width:150px;
+    border:1px solid #ccc;
+    margin-left: 200px;
+    margin-right: 20px;
+
 }
 
 .imgCarte {
@@ -89,7 +148,7 @@ li a {
     background: transparent url("http://sushi-recette.fr/wp-content/uploads/2014/12/fond-ardoise.jpg") no-repeat center bottom;
     background-size: cover;
     color: white;
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 5px;
     text-align: right;
 }
