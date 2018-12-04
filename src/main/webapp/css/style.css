@@ -59,6 +59,7 @@ input {
 }
 
 #alertmail, #alertpassword, #alertphone {
+    visibility: hidden;
     display: inline-block;
     font: 1em sans-serif;
     margin-left: 10px;
