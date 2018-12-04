@@ -10,31 +10,36 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 </head>
-<body>
+<body class="container">
 	<form method="post" action="inscription">
 		<fieldset>
 			<legend>Inscription</legend>
 			<p>Vous pouvez vous inscrire via ce formulaire.</p>
-
-			<label for="email">Adresse email <span class="requis">*</span></label>
-			<input type="email" id="email" name="email"
-				value="<c:out value="${utilisateur.email}"/>" size="20"
-				maxlength="60" /> <span class="erreur">${form.erreurs['email']}</span>
-			<br /> <label for="motdepasse">Mot de passe <span
-				class="requis">*</span></label> <input type="password" id="motdepasse"
-				name="motdepasse" value="" size="20" maxlength="20" /> <span
-				class="erreur">${form.erreurs['motdepasse']}</span> <br /> <label
-				for="confirmation">Confirmation du mot de passe <span
-				class="requis">*</span></label> <input type="password" id="confirmation"
-				name="confirmation" value="" size="20" maxlength="20" /> <span
-				class="erreur">${form.erreurs['confirmation']}</span> <br /> <label
-				for="nom">Nom d'utilisateur</label> <input type="text" id="nom"
-				name="nom" value="<c:out value="${utilisateur.nom}"/>" size="20"
-				maxlength="20" /> <span class="erreur">${form.erreurs['nom']}</span>
-			<br /> <input type="submit" value="Inscription" class="sansLabel" />
+			
+			<label for="nom">Nom</label>
+			<input type="text" id="nom" name="nom" value="<c:out value="${utilisateur.nom}"/>"/>
+			<br /> 
+			<label for="prenom">Prenom</label>
+			<input type="text" id="prenom" name="prenom" value="<c:out value="${utilisateur.prenom}"/>"/>
+			<br /> 
+			<label for="telephone">Telephone</label>
+			<input type="text" id="telephone" name="telephone" value="<c:out value="${utilisateur.telephone}"/>"/>
+			<br /> 
+			<label for="email">Adresse email</label>
+			<input type="email" id="email" name="email"	value="<c:out value="${utilisateur.email}"/>"/> 
+			<br /> 
+			<label for="password">Mot de passe</label> 
+			<input type="password" id="password" name="password" value=""/> 
+			<span class="erreur">${form.erreurs['motdepasse']}</span> 
+			<br /> 
+			<label for="confirmation">Confirmation du mot de passe </label> 
+			<input type="password" id="confirmation" name="confirmation" value=""/>
+			<br /> 
+			
+			<input type="submit" value="Inscription" class="sansLabel" />
 			<br />
 
-			<p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
+			<p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.erreurs}</p>
 		</fieldset>
 	</form>
 </body>

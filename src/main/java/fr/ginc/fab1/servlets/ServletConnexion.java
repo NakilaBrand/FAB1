@@ -28,8 +28,14 @@ public class ServletConnexion extends HttpServlet {
 		/* Préparation de l'objet formulaire */
 		ConnexionForm form = new ConnexionForm();
 
-		/* Traitement de la requête et récupération du bean en résultant */
-		Utilisateur utilisateur = form.connecterUtilisateur(request);
+		/* pétage de cable si le mdp est mauvais */
+		Utilisateur utilisateur = null;
+		try {
+			utilisateur = form.connecterUtilisateur(request);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return;
+		}
 
 		/* Récupération de la session depuis la requête */
 		HttpSession session = request.getSession();
