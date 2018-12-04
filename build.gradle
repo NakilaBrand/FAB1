@@ -22,5 +22,6 @@ dependencies {
     compile group: 'javax.servlet', name: 'jstl', version: '1.2'
     compile 'com.microsoft.sqlserver:sqljdbc4:4.0'
     compile group: 'org.apache.tomcat', name: 'tomcat-catalina', version: '9.0.13'
+    compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.14'
 }
 
