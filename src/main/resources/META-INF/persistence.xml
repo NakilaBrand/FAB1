@@ -5,13 +5,15 @@
 
 	<persistence-unit name="SQL-UP" transaction-type="RESOURCE_LOCAL">
 
-		<!--faut changer
-		 <class>fr.eni.jpa.bean.Acteur</class>
-		<class>fr.eni.jpa.bean.Film</class>
-		<class>fr.eni.jpa.bean.Personne</class>
-		<class>fr.eni.jpa.bean.Realisateur</class>
-		<class>fr.eni.jpa.bean.Style</class> 
-		-->
+		
+		<class>fr.ginc.fab1.bean.Commande</class>
+		<class>fr.ginc.fab1.bean.Commentaire</class>
+		<class>fr.ginc.fab1.bean.Plat</class>
+		<class>fr.ginc.fab1.bean.Reservation</class>
+		<class>fr.ginc.fab1.bean.Restaurant</class>
+		<class>fr.ginc.fab1.bean.TrancheHoraire</class>
+		<class>fr.ginc.fab1.bean.Utilisateur</class>
+		
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />

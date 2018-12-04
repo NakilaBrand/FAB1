@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 
 
@@ -79,6 +80,16 @@ public class GenericDaoImpl<T, U> implements GenericDao<T, U>{
 				.getEntityManager()
 				.createQuery(req, c)
 				.getResultList();
+	}
+
+	@Override
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public T findByAttr( Class c, String attr, U value) {
+		T res = null;
+		Query query = DAOUtil.getEntityManager().createQuery("SELECT FROM "+c.getName()+" c WHERE c."+attr+" = :value");
+        query.setParameter("value", value);
+        res = (T) query.getSingleResult();
+		return res;
 	}
 
 }

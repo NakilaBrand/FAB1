@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import fr.ginc.fab1.bean.Utilisateur;
+import fr.ginc.fab1.dao.GenericDao;
+import fr.ginc.fab1.dao.GenericDaoImpl;
 
 public final class InscriptionForm {
 	private static final String CHAMP_EMAIL = "email";
@@ -15,6 +17,7 @@ public final class InscriptionForm {
 
 	private String resultat;
 	private Map<String, String> erreurs = new HashMap<String, String>();
+	private GenericDao<Utilisateur, String> dao = new GenericDaoImpl<>();
 
 	public String getResultat() {
 		return resultat;
@@ -55,7 +58,19 @@ public final class InscriptionForm {
 		utilisateur.setNom(nom);
 
 		if (erreurs.isEmpty()) {
-			resultat = "Succes de l'inscription.";
+			if (dao.findByAttr(Utilisateur.class, "email", utilisateur.getEmail()) == null) {
+				try {
+
+					dao.add(utilisateur);
+				} catch (Exception e) {
+
+					e.printStackTrace();
+				}
+				resultat = "Succes de l'inscription.";
+			}else{
+				
+				resultat = "Echec de l'inscription : un Utilisateur avec cet email existe deja";
+			}
 		} else {
 			resultat = "Echec de l'inscription.";
 		}

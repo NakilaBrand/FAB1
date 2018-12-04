@@ -1,14 +1,15 @@
 package fr.ginc.fab1.bean;
 
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @javax.persistence.Entity
-
 public class Utilisateur implements java.io.Serializable
 {
     private static final long serialVersionUID = 1L;
 
     @javax.persistence.Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private java.lang.Integer id;
     
     private java.lang.String nom;

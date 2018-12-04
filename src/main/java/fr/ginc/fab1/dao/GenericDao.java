@@ -11,6 +11,9 @@ public interface GenericDao<T, U> {
 	public void update(T t) throws Exception;
 
 	public void update(List<T> listeT) throws Exception;
+	
+	@SuppressWarnings("rawtypes")
+	public T findByAttr( Class c, String attr, U value);
 
 	@SuppressWarnings("rawtypes")
 	public T findById(Class c ,U id);
