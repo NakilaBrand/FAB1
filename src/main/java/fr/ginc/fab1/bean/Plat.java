@@ -1,5 +1,7 @@
 package fr.ginc.fab1.bean;
 
+import java.util.List;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -29,9 +31,9 @@ public class Plat implements java.io.Serializable
         cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
-    java.util.List<Commentaire> commentaires;
-
     
+    private List<Commentaire> commentaires;
+
     public void setId(java.lang.Integer id) {
         this.id = id;
     }
@@ -93,7 +95,7 @@ public class Plat implements java.io.Serializable
     }
     
     
-    public java.util.List<Commentaire> getCommentaires() {
+    public List<Commentaire> getCommentaires() {
         return this.commentaires;
     }
     

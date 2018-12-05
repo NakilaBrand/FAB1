@@ -43,9 +43,10 @@ public class RestaurantManager {
 		return genericDao.findById(Restaurant.class, id);
 	}
 	
-	/*@PUT
+	@PUT
+	@Path("/{restaurantId:\\d+}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void ajouterPlat(Plat plat, int restaurantId)
+	public void ajouterPlat(Plat plat, @PathParam("restaurantId") int restaurantId)
 	{	
 		Restaurant restaurant = genericDao.findById(Restaurant.class, restaurantId);
 		restaurant.setPlat(plat);
@@ -54,7 +55,7 @@ public class RestaurantManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 		};
-	}*/
+	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
