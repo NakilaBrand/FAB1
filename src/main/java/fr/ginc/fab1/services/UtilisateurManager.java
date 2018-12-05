@@ -73,7 +73,7 @@ public class UtilisateurManager {
 
 		if (user == null) {
 			errs.add("Utilisateur inconnu");
-			return Response.serverError().entity(errs).build();
+			return Response.status(Response.Status.BAD_REQUEST).entity(errs).build();
 		}
 		if (user.getPassword().trim().equals(u.getPassword().trim())) {
 			// mise en sessions
@@ -83,7 +83,7 @@ public class UtilisateurManager {
 			return Response.ok().build();
 		}
 		errs.add("Mot de passe incorrect");
-		return Response.serverError().entity(errs).build();
+		return Response.status(Response.Status.BAD_REQUEST).entity(errs).build();
 
 	}
 
