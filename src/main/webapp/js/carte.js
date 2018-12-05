@@ -33,6 +33,9 @@ fetch("/FAB1/service/restaurants/"+choix
 	})*/;
 
 
+function afficherListe(){
+	
+}
 
 function ajouterPanier (id) {
 	
