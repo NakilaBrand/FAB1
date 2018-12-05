@@ -25,7 +25,7 @@ function ajouterPanier(id) {
 
     var data = {};
 
-    fetch("/FAB1/service/commandes/restaurant/" + id, {
+    fetch("/FAB1/service/commandes/panier/" + id, {
         method: "POST",
         headers: {
             "Content-Type": "application/json; charset=utf-8"
