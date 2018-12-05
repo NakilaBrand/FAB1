@@ -1,28 +1,34 @@
-fetch("/FAB1/services/plats/restaurants/"+document.getElementById("choixRestaurant").value
+
+fetch("/FAB1/service/restaurants/1"/*+document.getElementById("choixRestaurant").value*/
 	).then(function(reponse) {
 		return reponse.json();
 	}).then(function(data) {
+		var listePlat = document.getElementById('listePlat');
+		listePlat.innerHTML = "";
+
+
+		data.plats.forEach(function (plat){
+			var div = document.createElement('div');
+			div.setAttribute('class',"col-12 col-sm-6 col-md-4")
+			div.innerHTML =  "<div class=\"plat\"> <h3 class=\"plats__title\">"+plat.nom+"</h3> <a href=\"avis.html\"><button class=\"buttonNote\" type=\"rsvBtn\">Noter</button></a><img src=\"icons/AjouterNoir.png\" height=\"30\"/><div class=\"plats__transform\"><img class=\"imgCarte\" src=\""+plat.imageURL +"\" alt=\""+plat.nom +"\"></div></div>"
+			listePlat.appendChild(div);
+		})
+   
+	})/*.then(function(restaurant) {
 
 		var listePlat = document.getElementById('listePlat');
-		pdm.innerHTML = "";
-	
-		
-		data.forEach(function (plat){
-			var li = document.createElement('li');
-			
-			
-			li.setAttribute('id',plat.id);
-			
-			
-			li.innerHTML = "<span> <img src=\"" +plat.imageURL "\" alt=\"plat_"+plat.id"\" /></span>" +"<span  onclick=\"ajouterPanier("+plat.id+")\"\"></span>"+notes.text;
-			
-			
-			
-            ul.appendChild(li);
-		})
+		listePlat.innerHTML = "";
 
-        
-	});
+
+		restaurant.forEach(function (plat){
+			var div = document.createElement('div');
+			div.setAttribute('class',"col-12 col-sm-6 col-md-4")
+			div.innerHTML =  "<div class=\"plat\"> <h3 class=\"plats__title\">"+plat.nom+"</h3> <a href=\"avis.html\"><button class=\"buttonNote\" type=\"rsvBtn\">Noter</button></a><img src=\"icons/AjouterNoir.png\" height=\"30\"/><div class=\"plats__transform\"><img class=\"imgCarte\" src=\""+plat.imageURL +"\" alt=\""+plat.nom +"\"></div></div>"
+			listePlat.appendChild(div);
+		})
+   
+	})*/;
+
 
 
 function ajouterPanier (id) {
