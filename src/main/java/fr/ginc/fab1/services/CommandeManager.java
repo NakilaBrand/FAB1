@@ -1,5 +1,6 @@
 package fr.ginc.fab1.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -10,6 +11,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 import fr.ginc.fab1.bean.Commande;
+import fr.ginc.fab1.bean.Plat;
 import fr.ginc.fab1.dao.GenericDao;
 import fr.ginc.fab1.dao.GenericDaoImpl;
 import fr.ginc.fab1.exception.DAOException;
@@ -19,6 +21,8 @@ public class CommandeManager {
 	
 	List<Commande> listeCommandes;
 	private GenericDao<Commande, Integer> genericDao;
+	private List<Plat> panier;
+	private GenericDao<Plat,Integer > platDAO;
 	
 	public CommandeManager(){
 		genericDao = new GenericDaoImpl<Commande, Integer>();
@@ -48,6 +52,23 @@ public class CommandeManager {
 			new DAOException("La commande n'a pas été prise en compte");
 		}
 		return Commande;
+	}
+	
+	@POST
+	@Path("/panier/{id:\\d+}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void ajouterPanier(int id)
+	{
+		//recuperer le panier en session
+		
+		if(panier == null){
+			List<Plat> panier = new ArrayList<>();
+		}
+		try {
+			panier.add(platDAO.findById(Plat.class, id));
+		} catch (Exception e) {
+			new DAOException("L'ajout en panier n'a pas fonctionné");
+		}
 	}
 	
 }
