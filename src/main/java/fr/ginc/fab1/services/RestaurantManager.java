@@ -67,47 +67,41 @@ public class RestaurantManager {
 		
 		List<Plat> plats = new ArrayList<>();
 		
+		Restaurant restaurant = new Restaurant();
 		if(id==1){
-			plats.add(p1);
-			plats.add(p2);
-			plats.add(p3);
-			plats.add(p4);
-			plats.add(p5);
-			plats.add(p6);
+			restaurant.setPlat(p1);
+			restaurant.setPlat(p2);
+			restaurant.setPlat(p3);
+			restaurant.setPlat(p1);
+			restaurant.setPlat(p2);
+			restaurant.setPlat(p3);
 		}else if(id==2){
-			plats.add(p1);
-			plats.add(p1);
-			plats.add(p1);
-			plats.add(p2);
-			plats.add(p2);
-			plats.add(p2);
-			plats.add(p3);
-			plats.add(p3);
-			plats.add(p3);
+			restaurant.setPlat(p1);
+			restaurant.setPlat(p1);
+			restaurant.setPlat(p1);
+			restaurant.setPlat(p2);
+			restaurant.setPlat(p2);
+			restaurant.setPlat(p3);
+			restaurant.setPlat(p3);
 		}else if(id==3){
-			plats.add(p3);
-			plats.add(p3);
-			plats.add(p3);
-			plats.add(p3);
-			plats.add(p3);
-			plats.add(p3);
-			plats.add(p3);
-			plats.add(p3);
-			plats.add(p3);
+			restaurant.setPlat(p3);
+			restaurant.setPlat(p3);
+			restaurant.setPlat(p3);
+			restaurant.setPlat(p3);
+			restaurant.setPlat(p3);
+			restaurant.setPlat(p3);
+			restaurant.setPlat(p3);
+			restaurant.setPlat(p3);
 		}
 		
-		
-		Restaurant restaurant = new Restaurant();
 		restaurant.setId(1);
-		
-		
-		//restaurant.setPlats(plats);
-		
 		return restaurant;
+		
+		
 		//return genericDao.findById(Restaurant.class, id);
 	}
 	
-	@PUT
+	/*@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void ajouterPlat(Plat plat, int restaurantId)
 	{	
@@ -118,7 +112,7 @@ public class RestaurantManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 		};
-	}
+	}*/
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
