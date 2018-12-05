@@ -18,18 +18,18 @@ function recupererPanier(){
 
 		data/*.plats*/.forEach(function (plat){
 			var tr = document.createElement('tr');
-			var td = document.createElement('td');
-			td.setAttribute('class',"coucou c'est la classe")
-			td.innerHTML =  "<div class=\"plat\">"+plat.nom+" <img src=\"icons/AjouterNoir.png\" height=\"30\"/></div>"
-			tr.appendChild(td);
-			td.innerHTML = "";
-			tr.appendChild(td);
-			td.innerHTML = "";
-			tr.appendChild(td);
-			td.innerHTML = "";
-			panierPlat.appendChild(li);
+			//td.setAttribute('class',"coucou c'est la classe")
+			
+			tr.innerHTML ="<td>"+plat.nom+"</td><td>1</td><td>"+plat.prix+"</td><td>"+plat.prix/**quantite*/+"</td><td><a href=\"supprimerPanier("/*+plat.*/+")\"><img src=\"icons/remove.png\" height=\"20\"/></a></td>"
+			
+			
+			panierPlat.appendChild(tr);
 		})
    
 	});
+	
+}
+
+function supprimerPanier(){
 	
 }

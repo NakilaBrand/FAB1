@@ -19,7 +19,7 @@ public class Commande implements java.io.Serializable
     
     private java.lang.String statut;
     
-
+    
     
     @javax.persistence.ManyToMany(
         cascade = {javax.persistence.CascadeType.ALL},
