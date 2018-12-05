@@ -43,13 +43,14 @@ public class UtilisateurManager {
 		return daoStr.findByAttr(Utilisateur.class, "email", email);
 	}
 
+	@Path("/inscription")
 	@POST
 	public Response addUtilisateur(Utilisateur u) {
 
 		try {
 			List<String> errs = CheckUser.check(u);
 			if (!errs.isEmpty()) {
-				return Response.serverError().entity(errs).build();
+				return Response.status(Response.Status.BAD_REQUEST).entity(errs).build();
 			}
 			daoInt.add(u);
 
