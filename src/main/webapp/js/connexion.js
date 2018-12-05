@@ -47,6 +47,7 @@ function connectUser() {
             alert(repJson);
     }).then(function f(){
     	if(!error){
+    	    sessionStorage.setItem("isconnected",true);
     		location.replace(apiHost+"FAB1")
     	}
     })
