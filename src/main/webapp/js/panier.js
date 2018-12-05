@@ -8,7 +8,7 @@ recupererPanier();
 
 function recupererPanier(){
 	
-	fetch("/FAB1/service/commandes"
+	fetch("/FAB1/service/commandes/panier"
 	).then(function(reponse) {
 		return reponse.json();
 	}).then(function(data) {

@@ -80,4 +80,19 @@ public class CommandeManager {
 		}
 	}
 	
+	@GET
+	@Path("/panier/{id:\\d+}")
+	public List<Plat> recupererPanier()
+	{
+		//recuperer le panier en session
+		HttpSession session = httpServletRequest.getSession();
+		panier = (List<Plat>) session.getAttribute("panier");
+		
+		if(panier == null){
+			List<Plat> panier = new ArrayList<>();
+		}
+		
+		return panier;
+	}
+	
 }
