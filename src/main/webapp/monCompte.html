@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Compte</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="container-fluid">
+        <img src="icons/LogoFAB-02.png" id="logo" height="120px"/></div>
+    <ul>
+        <li><a href="accueil.html">Accueil</a></li>
+        <li><a href="carte.html">Carte</a></li>
+        <li><a href="reservation.html">Reserver</a></li>
+        <li><a href="">Nous trouver</a></li>
+        <li><a href="connexion.html"><img src="icons/UserBlanc.png" height="30"/></a></li>
+        <li><a href="panier.html"><img src="icons/PanierBlanc.png" height="30"/></a></li>
+    </ul>
+    </div>
+</header>
+
+<form>
+    <div class="form-group">
+        <label for="prenom">Modifier prenom : </label>
+        <input type="text" class="prenom" id="prenom" placeholder="Jean-Jacques">
+    </div>
+    <div class="form-group">
+        <label for="nom">Modifier nom : </label>
+        <input type="text" class="nom" id="nom" placeholder="Rousseau">
+    </div>
+    <div class="form-group">
+        <label for="telephone">Modifier telephone : </label>
+        <input type="tel" class="telephone" id="telephone" placeholder="00 00 00 00 00">
+        <div id="alertphone" class="alert alert-success" role="alert"> ok</div>
+    </div>
+    <div class="form-group">
+        <label for="mail">Modifier e-mail : </label>
+        <input type="email" class="mail" id="mail" placeholder="mail@mail.com">
+        <div id="alertmail" class="alert alert-success" role="alert"> ok</div>
+    </div>
+    <div class="form-group">
+        <label for="password">Modifier mot de passe : </label>
+        <input type="password" class="password" id="password" placeholder="password">
+    </div>
+    <div class="form-group">
+        <label for="passwordconfirm">Confirmer modifier mot de passe : </label>
+        <input type="password" class="passwordconfirm" id="passwordconfirm" placeholder="password">
+        <div id="alertpassword" class="alert alert-success" role="alert"> ok</div>
+    </div>
+
+    <button type="button" class="buttondesincr" onclick="setUser()">Se désincrire</button>
+    <button type="button" class="buttonmodif" onclick="setUser()">Modifier</button>
+    <button type="button" class="buttondiscon" onclick="setUser()">Se déconnecter</button>
+
+</form>
+
+<footer class="footer">
+    <div id="finBody"><p>FINBODY</p></div>
+    <nav class="fixed-bottom">
+        <p id="copyright">@ Copyright Fourchette à Bretelles</p>
+    </nav>
+</footer>
+
+</body>
+</html>
