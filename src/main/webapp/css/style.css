@@ -156,6 +156,8 @@ input:focus     {
 .plats__transform {
     width: 350px;
     height: 400px;
+    background: url("");
+    background-position: center;
 }
 /* Carte */
 
