@@ -1,5 +1,7 @@
 package fr.ginc.fab1.bean;
 
+import java.util.List;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -29,26 +31,26 @@ public class Restaurant implements java.io.Serializable
         cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
-    java.util.Collection<Plat> plats;
+    List<Plat> plats;
     
     @javax.persistence.ManyToMany(
         cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
-    java.util.Collection<TrancheHoraire> tranchehoraire;
+    List<TrancheHoraire> tranchehoraire;
     
     @javax.persistence.OneToMany(
         mappedBy = "restaurant",
     	cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
-    java.util.Collection<Reservation> reservation;
+    List<Reservation> reservation;
     
     @javax.persistence.OneToMany(
         cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
-    java.util.Collection<Commande> commande;
+    List<Commande> commande;
 
     
     public void setId(Integer id) {
@@ -107,8 +109,8 @@ public class Restaurant implements java.io.Serializable
     
 
     
-    public void setPlats(java.util.Collection<Plat> plats) {
-        this.plats = plats;
+    public void setPlat(Plat plat) {
+        this.plats.add(plat);
     }
     
     
@@ -116,17 +118,17 @@ public class Restaurant implements java.io.Serializable
         return this.plats;
     }
     
-    public void setTranchehoraire(java.util.Collection<TrancheHoraire> tranchehoraire) {
-        this.tranchehoraire = tranchehoraire;
+    public void setTranchehoraire(TrancheHoraire trancheHoraire) {
+        this.tranchehoraire.add(trancheHoraire);
     }
     
     
-    public java.util.Collection<TrancheHoraire> getTranchehoraire() {
+    public List<TrancheHoraire> getTranchehoraire() {
         return this.tranchehoraire;
     }
     
-    public void setReservation(java.util.Collection<Reservation> reservation) {
-        this.reservation = reservation;
+    public void setReservation(Reservation reservation) {
+        this.reservation.add(reservation);
     }
     
     
@@ -134,8 +136,8 @@ public class Restaurant implements java.io.Serializable
         return this.reservation;
     }
     
-    public void setCommande(java.util.Collection<Commande> commande) {
-        this.commande = commande;
+    public void setCommande(Commande commande) {
+        this.commande.add(commande);
     }
     
     
