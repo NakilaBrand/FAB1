@@ -1,10 +1,13 @@
 
-fetch("/FAB1/service/restaurants/1"/*+document.getElementById("choixRestaurant").value*/
+
+var choix = document.getElementById("restaurant").value;
+
+fetch("/FAB1/service/restaurants/"+choix
 	).then(function(reponse) {
 		return reponse.json();
 	}).then(function(data) {
-		var listePlat = document.getElementById('listePlat');
-		listePlat.innerHTML = "";
+		var listePlat = document.getElementById('liste_plat');
+		//listePlat.innerHTML = "";
 
 
 		data.plats.forEach(function (plat){
@@ -30,6 +33,9 @@ fetch("/FAB1/service/restaurants/1"/*+document.getElementById("choixRestaurant")
 	})*/;
 
 
+function afficherListe(){
+	
+}
 
 function ajouterPanier (id) {
 	

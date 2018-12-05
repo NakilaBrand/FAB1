@@ -57,6 +57,10 @@ input {
     /* Pour harmoniser le look & feel des bordures des champs texte */
     border: 1px solid #999;
 }
+
+p {
+    text-align: justify;
+}
 .main{
     text-align: center;
 }
@@ -117,6 +121,10 @@ input:focus     {
 
 }
 
+#titlePlat {
+    padding-left: 50px;
+}
+
 .imgCarte {
     width: 350px;
     margin: 5px;
@@ -151,4 +159,11 @@ input:focus     {
     margin-top: 10px;
     padding: 5px;
     text-align: right;
+}
+
+#finBody {
+    height: 20px;
+    margin-top: 10px;
+    background: white;
+    color: white;
 }
