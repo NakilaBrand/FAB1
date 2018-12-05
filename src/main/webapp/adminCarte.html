@@ -2,9 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Notre Carte</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<header class="header">
+    <div class="container-fluid">
+        <img src="icons/LogoFAB-02.png" id="logo" height="120px"/>
+        <ul>
+            <li><a href="accueil.html">Accueil</a></li>
+            <li><a href="carte.html">Carte</a></li>
+            <li><a href="reservation.html">Reserver</a></li>
+            <li><a href="">Nous trouver</a></li>
+            <li><a href="connexion.html"> ADMIN  <img src="icons/UserBlanc.png"
+                                                             height="30"/></a></li>
+            <li><a href="panier.html"><img src="icons/PanierBlanc.png"
+                                           height="30"/></a></li>
+        </ul>
+    </div>
+</header>
 
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <section class="carteDescr">
+                <h3>Notre Carte</h3>
+                <textarea class="notearea" name="" id="" cols="30" rows="5"></textarea>
+                <button class="buttonvalnote">Valider</button>
+
+            </section>
+        </div>
+        <div class="col-12 col-md-4">
+            <section class="restaurantChoice">
+                <h3>Nos Restaurants</h3>
+                <form>
+                    <select name="restaurant" size="1" id="restaurant" onchange="afficherListe()">
+                        <OPTION value="1">Rennes
+                        <OPTION value="2">Nantes
+                        <OPTION value="3">Brest
+                    </select>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<div class="plats row">
+    <div class="col-12">
+
+        <div class="row">
+            <div class="col-12">
+                <h2 class="plat__title">Nos Plats</h2>
+            </div>
+        </div>
+
+        <div class="row" id="liste_plat"></div>
+
+    </div>
+
+</div>
+
+<footer class="footer">
+    <div id="finBody"><p>FINBODY</p> </div>
+    <nav class="fixed-bottom">
+
+        <p id="copyright">@ Copyright Fourchette à Bretelles</p>
+    </nav>
+</footer>
 </body>
 </html>
