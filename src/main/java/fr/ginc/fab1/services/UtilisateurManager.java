@@ -43,14 +43,18 @@ public class UtilisateurManager {
 		return daoStr.findByAttr(Utilisateur.class, "email", email);
 	}
 
+	@Path("/inscription")
 	@POST
 	public Response addUtilisateur(Utilisateur u) {
 
 		try {
 			List<String> errs = CheckUser.check(u);
 			if (!errs.isEmpty()) {
-				return Response.serverError().entity(errs).build();
+				return Response.status(Response.Status.BAD_REQUEST).entity(errs).build();
 			}
+			
+			//----------A changer si on veut etre admin-----------------//
+			u.setIsAdmin(false);
 			daoInt.add(u);
 
 		} catch (Exception e) {

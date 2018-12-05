@@ -31,9 +31,9 @@ public class Plat implements java.io.Serializable
         cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
+    
     private List<Commentaire> commentaires;
 
-    
     public void setId(java.lang.Integer id) {
         this.id = id;
     }
