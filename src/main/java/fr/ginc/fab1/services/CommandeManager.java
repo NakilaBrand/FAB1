@@ -31,6 +31,9 @@ public class CommandeManager {
 	
 	public CommandeManager(){
 		genericDao = new GenericDaoImpl<Commande, Integer>();
+		platDAO = new GenericDaoImpl<Plat, Integer>();
+				
+				
 	}
 	
 	@GET
@@ -62,26 +65,31 @@ public class CommandeManager {
 	@POST
 	@Path("/panier/{id:\\d+}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void ajouterPanier(int id)
+	public void ajouterPanier(@PathParam("id") int id)
 	{
 		//recuperer le panier en session
 		HttpSession session = httpServletRequest.getSession();
 		panier = (List<Plat>) session.getAttribute("panier");
 		
 		if(panier == null){
-			List<Plat> panier = new ArrayList<>();
+			panier = new ArrayList<>();
 		}
 		try {
-			panier.add(platDAO.findById(Plat.class, id));
+			System.out.println(id);
+			Plat test = platDAO.findById(Plat.class, id);
+			System.out.println(test);
+			panier.add(test);
+			System.out.println(platDAO.findById(Plat.class, id));
 			//stocker Panier en session
 			session.setAttribute("panier",panier);
 		} catch (Exception e) {
-			new DAOException("L'ajout en panier n'a pas fonctionné");
+			e.printStackTrace();
+			//throw new DAOException("L'ajout en panier n'a pas fonctionné");
 		}
 	}
 	
 	@GET
-	@Path("/panier/{id:\\d+}")
+	@Path("/panier")
 	public List<Plat> recupererPanier()
 	{
 		//recuperer le panier en session

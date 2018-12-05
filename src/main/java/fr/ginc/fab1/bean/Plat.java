@@ -98,6 +98,18 @@ public class Plat implements java.io.Serializable
     public List<Commentaire> getCommentaires() {
         return this.commentaires;
     }
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Plat [id=" + id + ", nom=" + nom + ", description=" + description + ", prix=" + prix + ", noteMoyenne="
+				+ noteMoyenne + ", imageURL=" + imageURL + ", commentaires=" + commentaires + "]";
+	}
+    
+    
     
 }
 

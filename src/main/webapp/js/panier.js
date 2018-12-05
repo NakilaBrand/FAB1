@@ -10,10 +10,14 @@ function recupererPanier(){
 	
 	fetch("/FAB1/service/commandes/panier"
 	).then(function(reponse) {
+		
+		//si null ,ne rien faire
 		return reponse.json();
 	}).then(function(data) {
 		var panierPlat = document.getElementById('panier_plat');
-		panierPlat.innerHTML = "";
+		//panierPlat.innerHTML = "";
+		
+		
 
 
 		data/*.plats*/.forEach(function (plat){
