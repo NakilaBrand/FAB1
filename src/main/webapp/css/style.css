@@ -135,8 +135,7 @@ input:focus     {
     border-radius:2px;
     width:150px;
     border:1px solid #ccc;
-    margin-left: 255px;
-    margin-right: 20px;
+    margin-right: 0px;
 
 }
 
