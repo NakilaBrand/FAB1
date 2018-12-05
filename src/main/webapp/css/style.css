@@ -39,6 +39,21 @@ p {
     text-align: justify;
 }
 
+/*nous trouver*/
+
+#noustrouvertitre {
+    margin: 30px;
+    text-align: center;
+}
+.adrr {
+    padding: 10px;
+}
+.adrrennes {
+    background: lightgrey;
+    border-radius: 10px;
+    padding: 10px;
+}
+
 /* Plat */
 .photoPlat {
 
@@ -212,6 +227,11 @@ input:focus     {
     margin-top: 10px;
     padding: 5px;
     text-align: right;
+}
+
+#copyright {
+    text-align: right;
+    margin-right: 20px;
 }
 
 #finBody {
