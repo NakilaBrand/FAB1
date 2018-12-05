@@ -1,5 +1,6 @@
-var choix = document.getElementById("restaurant").value;
 
+
+var choix = document.getElementById("restaurant").value;
 
 fetch("/FAB1/service/restaurants/"+choix
 	).then(function(reponse) {
