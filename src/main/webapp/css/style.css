@@ -41,8 +41,18 @@ p {
 
 /* Plat */
 .photoPlat {
-    width: 350px;
-    height: 500px;
+
+    height: 400px;
+    background-image: url("http://image.noelshack.com/fichiers/2018/49/2/1543928370-boufbourg.jpg");
+    background-position: bottom;
+    background-size: cover;
+}
+
+
+
+#titlePlat, #prixPlat, #ajoutPlat {
+    position: center;
+    align-content: center;
 }
 
 /* Formulaires */
@@ -158,6 +168,7 @@ input:focus     {
     height: 400px;
     background: url("");
     background-position: center;
+    background-size: cover;
 }
 /* Carte */
 
