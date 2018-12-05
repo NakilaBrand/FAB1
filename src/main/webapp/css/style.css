@@ -162,5 +162,6 @@ input:focus     {
 }
 
 #finBody {
-    margin: 5px;
+    height: 10px;
+    background: white;
 }
