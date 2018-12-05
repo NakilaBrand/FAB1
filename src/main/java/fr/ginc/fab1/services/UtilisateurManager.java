@@ -46,6 +46,7 @@ public class UtilisateurManager {
 	@Path("/inscription")
 	@POST
 	public Response addUtilisateur(Utilisateur u) {
+		Response res = null;
 
 		try {
 			List<String> errs = CheckUser.check(u);
@@ -53,14 +54,26 @@ public class UtilisateurManager {
 				return Response.status(Response.Status.BAD_REQUEST).entity(errs).build();
 			}
 			
+			Utilisateur isPresent = daoStr.findByAttr(Utilisateur.class, "email", u.getEmail());
+			
+			
+			if(isPresent != null){
+				errs.add("Cet Email existe déja !");
+				res = Response.status(Response.Status.BAD_REQUEST).entity(errs).build();
+			}else{
+				res = Response.ok().build();
+			}
+			
 			//----------A changer si on veut etre admin-----------------//
 			u.setIsAdmin(false);
 			daoInt.add(u);
 
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return Response.ok().build();
+		
+		return res;
 	}
 
 	@Path("/connexion")
