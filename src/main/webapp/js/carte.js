@@ -3,8 +3,8 @@ fetch("/FAB1/service/restaurants/1"/*+document.getElementById("choixRestaurant")
 	).then(function(reponse) {
 		return reponse.json();
 	}).then(function(data) {
-		var listePlat = document.getElementById('listePlat');
-		listePlat.innerHTML = "";
+		var listePlat = document.getElementById('liste_plat');
+		//listePlat.innerHTML = "";
 
 
 		data.plats.forEach(function (plat){
