@@ -88,7 +88,6 @@ public class Reservation implements java.io.Serializable
         this.utilisateur = utilisateur;
     }
     
-    
     public Utilisateur getUtilisateur() {
         return this.utilisateur;
     }

@@ -21,12 +21,35 @@
     </div>
 </header>
 
+ <div>
+                <label for="datenaissance">date de naissance</label>
+                <input type="date" name="datenaissance" id="datenaissance" placeholder="">
+            </div>
+
+ <div>
+                <label for="nbpersonne">nombre de personne</label>
+                <input type="number" min = "1" name="nbpersonne" id="nbpersonne" placeholder="">
+            </div>
+
+<form>
+                    <select name="restaurant" size="1" id="restaurant" onchange="afficherTranche()">
+                        <OPTION value="1">Rennes
+                        <OPTION value="2">Nantes
+                        <OPTION value="3">Brest
+                    </select>
+                </form>
+                <ul id="liste_reservation">
+                
+                </ul>
+                
+tranche horaire
+
 <footer class="footer">
     <div id="finBody"><p>FINBODY</p> </div>
     <nav class="fixed-bottom">
         <p id="copyright">@ Copyright Fourchette à Bretelles</p>
     </nav>
 </footer>
-
+<script src="js/reserver.js"></script>
 </body>
 </html>
