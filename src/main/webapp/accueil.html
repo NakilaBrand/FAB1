@@ -16,15 +16,19 @@
             <li><a href="carte.html">Carte</a></li>
             <li><a href="reservation.html">Reserver</a></li>
             <li><a href="noustrouver.html">Nous trouver</a></li>
-            <li><a href="connexion.html">Se Connecter  <img src="icons/UserBlanc.png" height="30"/></a></li>
+            <li><a href="connexion.html">Se Connecter <img src="icons/UserBlanc.png" height="30"/></a></li>
             <li><a href="panier.html"><img src="icons/PanierBlanc.png" height="30"/></a></li>
         </ul>
     </div>
 </header>
 
 <div id="button">
-    <a href="carte.html"><button class="button" type="cmdBtn">Commander</button></a>
-    <a href="reservation.html"><button class="button" type="rsvBtn">Reserver</button></a>
+    <a href="carte.html">
+        <button class="button" type="cmdBtn">Commander</button>
+    </a>
+    <a href="reservation.html">
+        <button class="button" type="rsvBtn">Reserver</button>
+    </a>
 </div>
 <div class="container">
     <div class="row">
@@ -48,27 +52,29 @@
                 <h3>Plat du Jour</h3>
                 <div class="container">
                     <div class="row">
-                        <div id="imgPlat" class="col-4">
-                            <img url="http://image.noelshack.com/fichiers/2018/49/2/1543928370-boufbourg.jpg" width="230px" id="photo"/>
-                        </div>
-                        <div id="descrPlat" class="col-8">
-                            <h4 id="nomPlat"></h4>
-                            <p><span id="platDuMoment"></span></p>
-                            
-                            
+                        <div id="imgPlat" class="col-12 col-md-4">
+                            <img url="http://image.noelshack.com/fichiers/2018/49/2/1543928370-boufbourg.jpg"
+                                 width="230px" id="photo"/>
                         </div>
                     </div>
+                    <div id="descrPlat" class="row">
+                        <div class="col-12 col-md-8">
+                            <h4 id="nomPlat"></h4>
+                            <p><span id="platDuMoment"></span></p>
+                        </div>
+
+                    </div>
+
                 </div>
             </section>
         </div>
-
-
+        
     </div>
 </div>
 
 
 <footer class="footer">
-    <div id="finBody"><p>FINBODY</p> </div>
+    <div id="finBody"><p>FINBODY</p></div>
     <nav class="fixed-bottom">
         <p id="copyright">@ Copyright Fourchette à Bretelles</p>
     </nav>
