@@ -129,5 +129,15 @@ public class UtilisateurManager {
 			e.printStackTrace();
 		}
 	}
+	
+	@Path("/deconnexion")
+	@POST
+	public void deconnexion(){
+		HttpSession session = httpServletRequest.getSession();
+		session.setAttribute("utilisateur",null);
+		session.setAttribute("panier", null);
+	}
+	
+	
 
 }
