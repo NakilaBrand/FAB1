@@ -59,6 +59,30 @@ p {
     padding: 10px;
 }
 
+/*Panier*/
+#panier_plat {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#panier_plat td, #panier_plat th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#panier_plat tr:nth-child(even){background-color: #f2f2f2;}
+
+#panier_plat tr:hover {background-color: #ddd;}
+
+#panier_plat th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: black;
+    color: white;
+}
+
 /* Plat */
 .photoPlat {
 
