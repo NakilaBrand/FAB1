@@ -31,10 +31,14 @@ public class UtilisateurManager {
 		return daoInt.findAll(Utilisateur.class);
 	}
 
-	@Path("/{id}")
+	@Path("/usersession")
 	@GET
-	public Utilisateur getUtilisateurById(@PathParam("id") int id) {
-		return daoInt.findById(Utilisateur.class, id);
+	public Utilisateur getUtilisateurById() {
+		HttpSession session = httpServletRequest.getSession();
+		Utilisateur res = (Utilisateur) session.getAttribute("utilisateur");
+		System.out.println(res);
+		return res; 
+		
 	}
 
 	@Path("/email/{email}")
@@ -53,26 +57,24 @@ public class UtilisateurManager {
 			if (!errs.isEmpty()) {
 				return Response.status(Response.Status.BAD_REQUEST).entity(errs).build();
 			}
-			
+
 			Utilisateur isPresent = daoStr.findByAttr(Utilisateur.class, "email", u.getEmail());
-			
-			
-			if(isPresent != null){
+
+			if (isPresent != null) {
 				errs.add("Cet Email existe déja !");
 				res = Response.status(Response.Status.BAD_REQUEST).entity(errs).build();
-			}else{
+				
+			} else {
+				// ----------A changer si on veut etre admin-----------------//
+				u.setIsAdmin(false);
+				daoInt.add(u);
 				res = Response.ok().build();
 			}
-			
-			//----------A changer si on veut etre admin-----------------//
-			u.setIsAdmin(false);
-			daoInt.add(u);
 
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return res;
 	}
 
@@ -91,7 +93,9 @@ public class UtilisateurManager {
 		if (user.getPassword().trim().equals(u.getPassword().trim())) {
 			// mise en sessions
 			HttpSession session = httpServletRequest.getSession();
+			
 			session.setAttribute("utilisateur", user);
+			System.out.println("SESSION OKKKKKKKKK");
 
 			return Response.ok().build();
 		}
@@ -100,16 +104,13 @@ public class UtilisateurManager {
 
 	}
 
-	@Path("/{id}")
+	@Path("/modification")
 	@PUT
-	public Response updateUtilisateur(@PathParam("id") int id, Utilisateur u) {
-		Utilisateur user = daoInt.findById(Utilisateur.class, id);
-		List<String> errs = CheckUser.check(u);
-		if (!errs.isEmpty()) {
-			return Response.serverError().entity(errs).build();
-		}
+	public Response updateUtilisateur(Utilisateur u) {
+		HttpSession session = httpServletRequest.getSession();
+		Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
+		
 		user.setEmail(u.getEmail());
-		user.setIsAdmin(u.getIsAdmin());
 		user.setNom(u.getNom());
 		user.setPrenom(u.getPrenom());
 		user.setRestaurantPrefere(u.getRestaurantPrefere());
@@ -119,25 +120,26 @@ public class UtilisateurManager {
 		return Response.ok().build();
 	}
 
-	@Path("/{id}")
+	@Path("/desinscription")
 	@DELETE
-	public void deleteNote(@PathParam("id") int id) {
-		Utilisateur user = daoInt.findById(Utilisateur.class, id);
+	public void deleteUtilisateur() {
+		HttpSession session = httpServletRequest.getSession();
+		Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
+		session.setAttribute("utilisateur", null);
+
 		try {
 			daoInt.delete(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Path("/deconnexion")
 	@POST
-	public void deconnexion(){
+	public void deconnexion() {
 		HttpSession session = httpServletRequest.getSession();
-		session.setAttribute("utilisateur",null);
+		session.setAttribute("utilisateur", null);
 		session.setAttribute("panier", null);
 	}
-	
-	
 
 }
