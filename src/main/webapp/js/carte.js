@@ -1,5 +1,8 @@
 
-fetch("/FAB1/service/restaurants/1"/*+document.getElementById("choixRestaurant").value*/
+
+var choix = document.getElementById("restaurant").value;
+
+fetch("/FAB1/service/restaurants/"+choix
 	).then(function(reponse) {
 		return reponse.json();
 	}).then(function(data) {
