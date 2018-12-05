@@ -52,6 +52,9 @@ public class UtilisateurManager {
 			if (!errs.isEmpty()) {
 				return Response.status(Response.Status.BAD_REQUEST).entity(errs).build();
 			}
+			
+			//----------A changer si on veut etre admin-----------------//
+			u.setIsAdmin(false);
 			daoInt.add(u);
 
 		} catch (Exception e) {
