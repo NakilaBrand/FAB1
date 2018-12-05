@@ -39,6 +39,12 @@ p {
     text-align: justify;
 }
 
+/* Plat */
+.photoPlat {
+    width: 350px;
+    height: 500px;
+}
+
 /* Formulaires */
 
 form {
@@ -145,7 +151,11 @@ input:focus     {
 }
 .headernote {
     margin-left: 20px;
+}
 
+.plats__transform {
+    width: 350px;
+    height: 400px;
 }
 /* Carte */
 
