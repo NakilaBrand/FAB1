@@ -66,6 +66,7 @@ public class CommandeManager {
 		}
 		try {
 			panier.add(platDAO.findById(Plat.class, id));
+			//stocker Panier en session
 		} catch (Exception e) {
 			new DAOException("L'ajout en panier n'a pas fonctionné");
 		}
