@@ -33,6 +33,7 @@ function afficheErreur(erreur) {
 }
 
 function inscrireUser() {
+    var error = false;
     fetch(apiHost+"FAB1/service/utilisateurs/inscription", {
         method: 'post',
         headers: {
@@ -46,10 +47,21 @@ function inscrireUser() {
                 alert("Votre compte a été créé avec succès GG");
                 return;
             }
-                return response.json();
+            error = true;
+            return response.json();
 
         }).then( function functionName (repJson) {
+        if (repJson == null){
+            error = false;
+            return;
+        }
+        // a rendre plus bo :
         alert(repJson);
+
+    }).then(function f(){
+        if(!error){
+            location.replace(apiHost+"FAB1/connexion.html")
+        }
     })
 }
 

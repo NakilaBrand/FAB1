@@ -11,13 +11,16 @@ function setUser() {
     user.email = document.getElementById("email").value;
     user.password = document.getElementById("password").value;
 
-    connectUser();
+    connectUser()
+    	
+    
+    
 
 
 }
 
 function connectUser() {
-    var err = "Mot de passe incorrect"
+    var error = true;
 
     fetch(apiHost+"FAB1/service/utilisateurs/connexion", {
         method: 'post',
@@ -37,9 +40,16 @@ function connectUser() {
 
         }).then( function functionName (repJson) {
             if (repJson == null){
+            	error = false;
                 return;
             }
+            // a rendre plus bo :
             alert(repJson);
+    }).then(function f(){
+    	if(!error){
+    		location.replace(apiHost+"FAB1")
+    	}
     })
+    return error;
 
 }
