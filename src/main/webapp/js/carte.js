@@ -21,7 +21,7 @@ function afficherListe() {
             var plat_design = "<div class=\"container-fluid\">";
             plat_design += "<div class=\"row\" id=\"blackrow\">";
             plat_design += "<div class=\"col-6\">";
-            plat_design += "<a style=\"text-decoration: none\" href=\"\"><h3 class=\"cartetoplat\">"+ plat.nom +"</h3></a>";
+            plat_design += "<a style=\"text-decoration: none\" href=\"plats.html/\"><h3 class=\"cartetoplat\">"+ plat.nom +"</h3></a>";
             plat_design += "</div>";
             plat_design += "<div class=\"col-3\">";
             plat_design += "<button class=\"buttoncarte\">Noter</button>";

@@ -8,7 +8,7 @@ function recupererPanier(){
 		//si null ,ne rien faire
 		return reponse.json();
 	}).then(function(data) {
-		var panierPlat = document.getElementById('panier_plat');
+		var panierPlat = document.getElementById('tableau');
 		panierPlat.innerHTML = "";
 		
 		var tr = document.createElement('tr');
@@ -54,7 +54,7 @@ function supprimerPanier(id){
 		//si null ,ne rien faire
 		return reponse.json();
 	}).then(function(data) {
-		var panierPlat = document.getElementById('panier_plat');
+		var panierPlat = document.getElementById('tableau');
 panierPlat.innerHTML = "";
 		
 		var tr = document.createElement('tr');

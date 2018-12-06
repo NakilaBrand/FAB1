@@ -63,13 +63,14 @@ public class CommandeManager {
 		Commande commande = new Commande();
 		
 		commande.setPlatsCommandes(panier);
-		commande.setStatut("commandée");
+		commande.setStatut("commandee");
 		commande.setUtilisateur(user);
 //		commande.setHeure(heure);
 //		commande.setJour(jour);
 		
 		if(panier != null){
 			try {
+				//envoyerIdResto(id)
 				genericDao.add(commande);
 			} catch (DAOException e) {
 				new DAOException("La commande n'a pas été prise en compte");
