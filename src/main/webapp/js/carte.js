@@ -37,6 +37,21 @@ function afficherListe() {
             listePlat.appendChild(div);
         })
 
+    }).then(function functionName(response) {
+        choisirLeRestaurant();
+      });
+}
+
+function choisirLeRestaurant(){
+	var choix = document.getElementById("restaurant").value;
+	var data = {};
+
+    fetch("/FAB1/service/commandes/choixResto/" + choix, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+        body: JSON.stringify(data)
     });
 }
 

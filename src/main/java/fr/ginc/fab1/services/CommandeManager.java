@@ -91,6 +91,8 @@ public class CommandeManager {
 		HttpSession session = httpServletRequest.getSession();
 		panier = (List<Plat>) session.getAttribute("panier");
 		
+		
+		
 		if(panier == null){
 			panier = new ArrayList<>();
 		}
@@ -136,4 +138,15 @@ public class CommandeManager {
 		return panier;
 	}
 	
+	
+	@POST
+	@Path("/choixResto/{id:\\d+}")
+	public void choisirRestaurant(@PathParam("id") int id)
+	{
+		HttpSession session = httpServletRequest.getSession();
+		choixResto = (Integer) session.getAttribute("choixResto");
+		
+		session.setAttribute("choixResto",id);
+		
+	}
 }
