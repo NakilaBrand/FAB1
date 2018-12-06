@@ -3,6 +3,7 @@ package fr.ginc.fab1.bean;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @javax.persistence.Entity
@@ -22,11 +23,11 @@ public class Reservation implements java.io.Serializable
     
 
     
-    @javax.persistence.ManyToOne(
-    	fetch = javax.persistence.FetchType.LAZY,
-    	optional = false
-    )
-    Restaurant restaurant;
+//    @javax.persistence.ManyToOne(
+//    	fetch = javax.persistence.FetchType.LAZY
+//    )
+//    @JsonBackReference
+//    Restaurant restaurant;
     
     @javax.persistence.ManyToOne(
     	fetch = javax.persistence.FetchType.LAZY
@@ -67,14 +68,14 @@ public class Reservation implements java.io.Serializable
     
 
     
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
-    
-    
-    public Restaurant getRestaurant() {
-        return this.restaurant;
-    }
+//    public void setRestaurant(Restaurant restaurant) {
+//        this.restaurant = restaurant;
+//    }
+//    
+//    
+//    public Restaurant getRestaurant() {
+//        return this.restaurant;
+//    }
     
     public void setHoraireSelectionne(TrancheHoraire horaireSelectionne) {
         this.horaireSelectionne = horaireSelectionne;
@@ -95,8 +96,8 @@ public class Reservation implements java.io.Serializable
 
 	@Override
 	public String toString() {
-		return "Reservation [id=" + id + ", Jour=" + jour + ", nbPersonne=" + nbPersonne + ", restaurant=" + restaurant
-				+ ", horaireSelectionne=" + horaireSelectionne + ", utilisateur=" + utilisateur + "]";
+		return "Reservation [id=" + id + ", Jour=" + jour + ", nbPersonne=" + nbPersonne + /*", restaurant=" + restaurant
+				+*/ ", horaireSelectionne=" + horaireSelectionne + ", utilisateur=" + utilisateur + "]";
 	}
     
     

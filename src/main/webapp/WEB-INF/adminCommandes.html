@@ -50,7 +50,10 @@ function afficherListe(){
             +'<td>'+laCommande.jour+'</td>'
             +'<td>'+laCommande.heure+'</td>'
             +'<td>'+laCommande.statut+'</td>'
-            +'<td>'+laCommande.platsCommandes+'</td>'
+            +'<td>'
+            +laCommande.platsCommandes.forEach(function (plat){plat.nom })
+            //+laCommande.platsCommandes
+            +'</td>'
             +'<td>'+laCommande.utilisateur+'</td>'
             
             listecommande.appendChild(tr);

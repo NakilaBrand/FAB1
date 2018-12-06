@@ -40,8 +40,6 @@ public class Restaurant implements java.io.Serializable
     List<TrancheHoraire> tranchehoraire;
     
     @javax.persistence.OneToMany(
-        mappedBy = "restaurant",
-    	cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
     List<Reservation> reservation;
