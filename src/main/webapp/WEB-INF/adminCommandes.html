@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+	<div class="col-12 col-md-4">
+		<section class="restaurantChoice">
+			<h3>Nos Restaurants</h3>
+			<form>
+				<select name="restaurant" size="1" id="restaurant"
+					onchange="afficherListe()"><!-- tricher avec un refresh? -->
+					
+					<OPTION value="1">Rennes
+					<OPTION value="2">Nantes
+					<OPTION value="3">Brest
+				</select>
+			</form>
+		</section>
+	</div>
+
+	<table id="commandes" style="width: 100%">
+		<tr>
+			<th>ID</th>
+			<th>Jour de la commande</th>
+			<th>Heure de la commande</th>
+			<th>Statut de la commande</th>
+			<th>Plats commandés</th>
+			<th>Client</th>
+		</tr>
+		
+	</table>
+
+
+	<script>
+	 afficherListe();
+function afficherListe(){
+	var choix = document.getElementById("restaurant").value;
+    fetch("/FAB1/service/restaurants/" + choix
+    ).then(function (reponse) {
+        return reponse.json();
+    }).then(function (data) {
+        var listecommande = document.getElementById('commandes');
+        
+   data.commande.forEach(function (laCommande) {
+            var tr = document.createElement('tr');
+            tr.innerHTML = 
+            '<td>'+laCommande.id+'</td>'
+            +'<td>'+laCommande.jour+'</td>'
+            +'<td>'+laCommande.heure+'</td>'
+            +'<td>'+laCommande.statut+'</td>'
+            +'<td>'+laCommande.platsCommandes+'</td>'
+            +'<td>'+laCommande.utilisateur+'</td>'
+            
+            listecommande.appendChild(tr);
+        })
+
+    });
+    
+}
+
+
+</script>
+</body>
+</html>
