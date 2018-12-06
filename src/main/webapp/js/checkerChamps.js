@@ -10,7 +10,7 @@ function setAlertPhone(){
 		phone.innerText = "Ok"
 	}else{
 		phone.className = "alert alert-danger"
-		phone.innerText = "Veuillez renseigner un numéro de 10 chiffres"
+		phone.innerText = "Renseignez un tel valide"
 	}
 	
 }
@@ -23,7 +23,7 @@ function setAlertPassword(){
 		password.innerText = "Ok"
 	}else{
 		password.className = "alert alert-danger"
-		password.innerText = "Le mot de passe doit contenir minimum 5 caractères"
+		password.innerText = "minimum 5 caractères"
 	}
 }
 function setAlertPasswordConfirm(){
@@ -35,7 +35,7 @@ function setAlertPasswordConfirm(){
 		passConf.innerText = "Ok"
 	}else{
 		passConf.className = "alert alert-danger"
-		passConf.innerText = "Veuillez confirmer le mdp correctement lol"
+		passConf.innerText = "Confirmez le meme mdp"
 	}
 }
 
@@ -48,7 +48,7 @@ function setAlertEmail(){
 		email.innerText = "Ok"
 	}else{
 		email.className = "alert alert-danger"
-		email.innerText = "Veuillez renseigner un mail plus joli"
+		email.innerText = "renseignez un mail valide"
 	}
 }
 function checkPhone() {

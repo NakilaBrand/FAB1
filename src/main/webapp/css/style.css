@@ -151,10 +151,11 @@ input {
     visibility: hidden;
     display: inline-block;
     font: 1em sans-serif;
-    margin-left: 10px;
+    margin-left: 5px;
+    position: center;
 
     /* Pour que tous les champs texte aient la même dimension */
-    width: 150px;
+    width: 25%;
     box-sizing: border-box;
     border: 1px solid #999;
 
