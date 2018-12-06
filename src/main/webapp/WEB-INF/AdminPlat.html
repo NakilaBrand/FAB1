@@ -1,69 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Plat</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+
+<meta charset="UTF-8">
+<title>Plat</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-<header class="header">
-    <div class="container-fluid">
-        <img src="icons/LogoFAB-02.png" id="logo" height="120px"/>
-        <ul>
-            <li><a href="adminAccueil.html">Accueil</a></li>
-            <li><a href="adminCarte.html" class="active">Carte</a></li>
-            <li><a href="AdminReservations.html">Reservations</a></li>
-            <li><a href="adminCommandes.html">Commandes</a></li>
-            <li><a href="connexion.html"> ADMIN  <img src="icons/UserBlanc.png" height="30"/></a></li>
-        </ul>
-    </div>
-</header>
+	<header class="header">
+		<div class="container-fluid">
+			<img src="icons/LogoFAB-02.png" id="logo" height="120px" />
+			<ul>
+				<li><a href="adminAccueil.html">Accueil</a></li>
+				<li><a href="adminCarte.html" class="active">Carte</a></li>
+				<li><a href="AdminReservations.html">Reservations</a></li>
+				<li><a href="adminCommandes.html">Commandes</a></li>
+				<li><a href="connexion.html"> ADMIN <img
+						src="icons/UserBlanc.png" height="30" /></a></li>
+			</ul>
+		</div>
+	</header>
 
-<div class="container">
-    <div class="row">
+	<div class="container">
+		<div class="row">
 
-        <div class="col-12 col-md-4">
-            <div class="photoPlat">
-                <!--<img src="http://image.noelshack.com/fichiers/2018/49/2/1543928370-boufbourg.jpg" width="100%" alt="boeuf">-->
-            </div>
-        </div>
-        <div class="col-12 col-md-8">
-            <section class="descriptionPlat">
-                <div id="titlePlat" class="row">
-                    <div id="titrePlat" class="col-12 col-md-7">
-                        <h3>Nom du Plat</h3>
-                    </div>
-                    <div id="prixPlat" class="col-6 col-md-3">
-                        <textarea class="notearea" name="prix" id="prix" cols="3" rows="1">--,--€</textarea>
-                    </div>
-                    <div id="ajoutPlat" class="col-6 col-md-2">
-                        <img src="../icons/plus.png" height="40"/>
-                    </div>
-                </div>
+			<div class="col-12 col-md-4">
+				<div class="photoPlat">
+					>>>>>>> Stashed changes
+
+					<!--<img src="http://image.noelshack.com/fichiers/2018/49/2/1543928370-boufbourg.jpg" width="100%" alt="boeuf">-->
+				</div>
+			</div>
+			<div class="col-12 col-md-8">
+				<section class="descriptionPlat">
+					<div id="titlePlat" class="row">
+						<div id="titrePlat" class="col-12 col-md-7">
+							<input type="text" class="form-control" id="nomplat"
+								placeholder="Nom du plat">
+						</div>
+						<div class="col-12 col-md-7">
+							<input type="text" class="form-control" id="urlimg"
+								placeholder="URL de l'image">
+						</div>
+						<div id="" class="col-6 col-md-3">
+							<input type="number" class="form-control" id="prix"
+								placeholder="Prix">
+						</div>
+
+					</div>
 
 
-                <div id="descrPlatPlat" class="row">
-                    <div class="col-12">
-                        <textarea class="notearea" name="descriptionplat" id="descriptionplat" cols="30" rows="10">
+					<div id="descrPlatPlat" class="row">
+						<div class="col-12">
+							<textarea class="notearea" name="descriptionplat"
+								id="descriptionplat" cols="30" rows="10">
                         </textarea>
-                    </div>
-                </div>
+						</div>
+					</div>
+					<div id="ajoutPlat" class="col-6 col-md-2">
+						<button type="button" onclick="ajouter()">
+							<img src="icons/plus.png" height="40" />
+						</button>
+					</div>
 
 
-            </section>
-        </div>
+				</section>
+			</div>
 
 
-    </div>
-</div>
+		</div>
+	</div>
+	<script src="js/ajouterPlat.js"></script>
 
-<footer class="footer">
-    <div id="finBody"><p>FINBODY</p></div>
-    <nav class="fixed-bottom">
-        <p id="copyright">@ Copyright Fourchette à Bretelles</p>
-    </nav>
-</footer>
+	<footer class="footer">
+		<div id="finBody">
+			<p>FINBODY</p>
+		</div>
+		<nav class="fixed-bottom">
+			<p id="copyright">@ Copyright Fourchette à Bretelles</p>
+		</nav>
+	</footer>
 
 </body>
 </html>
