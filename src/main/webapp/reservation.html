@@ -21,28 +21,38 @@
     </div>
 </header>
 
- <div>
-                <label for="datenaissance">date de naissance</label>
-                <input type="date" name="datenaissance" id="datenaissance" placeholder="">
-            </div>
+	<div class="row">
+		<form>
+			<p>Choix du restaurant</p>
+			<div class="form-group">
+				<select class="form-control" id="restaurant">
+					<option value="1">FAB Rennes</option>
+					<option value="2">FAB Nantes</option>
+					<option value="3">FAB Brest</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<input
+					type="number" class="form-control" id="nbrPersonnes"
+					placeholder="Nombre de personnes"> 
+			</div>
+			<div class="form-group">
+				<label for="date">Choisissez une date de réservation</label>
+				<input
+					type="date" class="form-control" id="date"> 
+			</div>
+			<p>Choisissez une tranche horaire</p>
+			<div class="form-group">
+				<select class="form-control" id="trancheHoraire">
+					<option value="1">12h - 12h30</option>
+					<option value="2">12h30 - 13h</option>
+					<option value="3">13h - 13h30</option>
+				</select>
+			</div>
+			<button type="button" class="btn btn-primary" id="btnSubmit" onclick="ajouter()" >Submit</button>
+		</form>
+	</div>
 
- <div>
-                <label for="nbpersonne">nombre de personne</label>
-                <input type="number" min = "1" name="nbpersonne" id="nbpersonne" placeholder="">
-            </div>
-
-<form>
-                    <select name="restaurant" size="1" id="restaurant" onchange="afficherTranche()">
-                        <OPTION value="1">Rennes
-                        <OPTION value="2">Nantes
-                        <OPTION value="3">Brest
-                    </select>
-                </form>
-                <ul id="liste_reservation">
-                
-                </ul>
-                
-tranche horaire
 
 <footer class="footer">
     <div id="finBody"><p>FINBODY</p> </div>
@@ -50,6 +60,7 @@ tranche horaire
         <p id="copyright">@ Copyright Fourchette à Bretelles</p>
     </nav>
 </footer>
+
 <script src="js/reserver.js"></script>
 </body>
 </html>
