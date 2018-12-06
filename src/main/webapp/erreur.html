@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reservation</title>
+    <title>La Fourchette à Bretelles - Accueil</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="mainerreur">
 <header class="header">
     <div class="container-fluid">
 
@@ -15,7 +15,7 @@
             <ul>
                 <li><a href="accueil.html">Accueil</a></li>
                 <li><a href="carte.html">Carte</a></li>
-                <li><a href="reservation.html" class="active">Reserver</a></li>
+                <li><a href="reservation.html">Reserver</a></li>
                 <li><a href="noustrouver.html">Nous trouver</a></li>
                 <li id="connectSwitch"><a href="connexion.html">Se Connecter <img src="icons/UserBlanc.png"
                                                                                   height="30"/></a></li>
@@ -38,46 +38,21 @@
     </script>
 </header>
 
-	<div class="row">
-		<form>
-			<p>Choix du restaurant</p>
-			<div class="form-group">
-				<select class="form-control" id="restaurant">
-					<option value="1">FAB Rennes</option>
-					<option value="2">FAB Nantes</option>
-					<option value="3">FAB Brest</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<input
-					type="number" class="form-control" id="nbrPersonnes"
-					placeholder="Nombre de personnes"> 
-			</div>
-			<div class="form-group">
-				<label for="date">Choisissez une date de réservation</label>
-				<input
-					type="date" class="form-control" id="date"> 
-			</div>
-			<p>Choisissez une tranche horaire</p>
-			<div class="form-group">
-				<select class="form-control" id="trancheHoraire">
-					<option value="1">12h - 12h30</option>
-					<option value="2">12h30 - 13h</option>
-					<option value="3">13h - 13h30</option>
-				</select>
-			</div>
-			<button type="button" class="btn btn-primary" id="btnSubmit" onclick="ajouter()" >Submit</button>
-		</form>
-	</div>
-
+<div class="container">
+    <div class="row">
+        <div class="col-6" id="imgErreur"></div>
+        <div class="col-6">
+            <h2 id="titreerreur">ERREUR !</h2>
+            <h4 id="hahaha">HAHAHA !! <br>Tu n'as pas dis le mot magique !</h4>
+        </div>
+    </div>
+</div>
 
 <footer class="footer">
-    <div id="finBody"><p>FINBODY</p> </div>
     <nav class="fixed-bottom">
         <p id="copyright">@ Copyright Fourchette à Bretelles</p>
     </nav>
 </footer>
 
-<script src="js/reserver.js"></script>
 </body>
 </html>

@@ -475,6 +475,34 @@ input:focus     {
     font-weight: bolder;
 }
 
+/* ! ! ! ! ERREUR ! ! ! ! */
+#imgErreur {
+    background: url("https://i.gifer.com/Rbeh.gif");
+    background-position: center top;
+    background-size: 600px;
+    height: 400px;
+}
+
+#mainerreur {
+    background: whitesmoke;
+}
+
+#titreerreur {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color: darkred;
+    font-size: 100px;
+    text-align: center;
+}
+
+#hahaha {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 50px;
+    text-align: center;
+}
+
 /* ! ! ! ! FOOTER ! ! ! ! */
 
 .fixed-bottom {

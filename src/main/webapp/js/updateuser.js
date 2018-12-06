@@ -75,6 +75,7 @@ function getUser() {
         })
     });
 }
+
 function afficherUser() {
 	 getUser().then(function (user) {
 
