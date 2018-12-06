@@ -46,6 +46,11 @@ li>a:hover {
     color: black;
 }
 
+.active {
+    background-color: #fff;
+    color: black;
+}
+
 /* body */
 
 h5 {
