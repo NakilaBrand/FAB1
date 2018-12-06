@@ -33,6 +33,19 @@ li a {
     text-decoration: none;
 }
 
+li>a{
+    position: relative;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 40px;
+    padding: 0 2em;
+    -webkit-transition: all .3s ease;
+}
+li>a:hover {
+    background: rgba(255, 255, 255, .9);
+    color: black;
+}
+
 /* body */
 
 h5 {
@@ -42,6 +55,10 @@ h5 {
 
 p {
     text-align: justify;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 /*nous trouver*/
@@ -339,8 +356,6 @@ input:focus     {
 }
 
 .buttonCmd:active {
-
-    alignment: right;
     position:relative;
     top:1px;
 }
