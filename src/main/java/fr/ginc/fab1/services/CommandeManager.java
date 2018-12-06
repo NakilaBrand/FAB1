@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 
 import fr.ginc.fab1.bean.Commande;
 import fr.ginc.fab1.bean.Plat;
+import fr.ginc.fab1.bean.Utilisateur;
 import fr.ginc.fab1.dao.GenericDao;
 import fr.ginc.fab1.dao.GenericDaoImpl;
 import fr.ginc.fab1.exception.DAOException;
@@ -53,14 +54,28 @@ public class CommandeManager {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Commande ajouterCommande(Commande Commande)
+	public Commande ajouterCommande()
 	{
-		try {
-			genericDao.add(Commande);
-		} catch (DAOException e) {
-			new DAOException("La commande n'a pas été prise en compte");
+		HttpSession session = httpServletRequest.getSession();
+		panier = (List<Plat>) session.getAttribute("panier");
+		Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
+		
+		Commande commande = new Commande();
+		
+		commande.setPlatsCommandes(panier);
+		commande.setStatut("commandée");
+		commande.setUtilisateur(user);
+//		commande.setHeure(heure);
+//		commande.setJour(jour);
+		
+		if(panier != null){
+			try {
+				genericDao.add(commande);
+			} catch (DAOException e) {
+				new DAOException("La commande n'a pas été prise en compte");
+			}
 		}
-		return Commande;
+		return commande;
 	}
 	
 	@POST

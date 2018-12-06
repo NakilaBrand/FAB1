@@ -18,6 +18,7 @@ public class Commande implements java.io.Serializable
     private java.util.Date heure;
     
     private java.lang.String statut;
+    // "commandée"  ou "livrée"
     
     
     
