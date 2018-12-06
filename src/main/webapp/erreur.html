@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>La Fourchette à Bretelles - Accueil</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="mainerreur">
+<header class="header">
+    <div class="container-fluid">
+
+        <img src="icons/LogoFAB-02.png" id="logo" height="120px"/>
+        <nav>
+            <ul>
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="carte.html">Carte</a></li>
+                <li><a href="reservation.html">Reserver</a></li>
+                <li><a href="noustrouver.html">Nous trouver</a></li>
+                <li id="connectSwitch"><a href="connexion.html">Se Connecter <img src="icons/UserBlanc.png"
+                                                                                  height="30"/></a></li>
+                <li><a href="panier.html"><img src="icons/PanierBlanc.png" height="30"/></a></li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        function swiitch() {
+            console.log("ca passe ici et c'est " + sessionStorage.getItem("isconnected"))
+            if (sessionStorage.getItem("isconnected") == "true") {
+                document.getElementById("connectSwitch").innerHTML = '<a href="monCompte.html">Mon compte  <img src="icons/UserBlanc.png" height="30"/></a>';
+            } else {
+                console.log("c'est faux là et sa passe")
+                document.getElementById("connectSwitch").innerHTML = '<a href="connexion.html">Se Connecter <img src="icons/UserBlanc.png" height="30"/></a>';
+            }
+        }
+
+        swiitch();
+    </script>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6" id="imgErreur"></div>
+        <div class="col-6">
+            <h2 id="titreerreur">ERREUR !</h2>
+            <h4 id="hahaha">HAHAHA !! <br>Tu n'as pas dis le mot magique !</h4>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <nav class="fixed-bottom">
+        <p id="copyright">@ Copyright Fourchette à Bretelles</p>
+    </nav>
+</footer>
+
+</body>
+</html>
