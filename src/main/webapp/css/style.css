@@ -147,7 +147,7 @@ input {
 .main{
     text-align: center;
 }
-#alertmail, #alertpassword, #alertphone {
+#alertpasswordconfirm, #alertmail, #alertpassword, #alertphone {
     visibility: hidden;
     display: inline-block;
     font: 1em sans-serif;

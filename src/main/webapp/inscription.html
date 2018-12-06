@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/inscription.js"></script>
+    <script src="js/checkerChamps.js"></script>
 </head>
 <body>
 <header class="header">
@@ -50,22 +51,23 @@
     </div>
     <div class="form-group">
         <label for="telephone">Telephone : </label>
-        <input type="tel" class="telephone" id="telephone" placeholder="00 00 00 00 00">
+        <input type="tel" class="telephone" id="telephone" placeholder="00 00 00 00 00" onkeypress="setAlertPhone()">
         <div id="alertphone" class="alert alert-success" role="alert"> ok </div>
     </div>
     <div class="form-group">
         <label for="mail">E-mail : </label>
-        <input type="email" class="mail" id="mail" placeholder="mail@mail.com">
+        <input type="email" class="mail" id="mail" placeholder="mail@mail.com" onkeypress="setAlertEmail()">
         <div id="alertmail" class="alert alert-success" role="alert"> ok </div>
     </div>
     <div class="form-group">
         <label for="password">Mot de passe : </label>
-        <input type="password" class="password" id="password" placeholder="password">
+        <input type="password" class="password" id="password" placeholder="password" onkeypress="setAlertPassword()">
+        <div id="alertpassword" class="alert alert-success" role="alert"> ok </div>
     </div>
     <div class="form-group">
         <label for="passwordconfirm">Confirmer mot de passe : </label>
-        <input type="password" class="passwordconfirm" id="passwordconfirm" placeholder="password">
-        <div id="alertpassword" class="alert alert-success" role="alert"> ok </div>
+        <input type="password" class="passwordconfirm" id="passwordconfirm" placeholder="password" onkeyup="setAlertPasswordConfirm()">
+        <div id="alertpasswordconfirm" class="alert alert-success" role="alert"> ok </div>
     </div>
     <button type="button" class="buttonsubmit" onclick="setUser()">S'inscrire</button>
 </form>
