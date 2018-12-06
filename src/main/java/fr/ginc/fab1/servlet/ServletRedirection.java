@@ -25,7 +25,7 @@ public class ServletRedirection extends HttpServlet {
 		Utilisateur user = (Utilisateur) request.getSession().getAttribute("utilisateur");
 
 		response.setHeader("Cache-Control", "no-cache");
-		System.out.println(user.getEmail() + "   " + user.getIsAdmin());
+		
 		if (user != null && user.getIsAdmin()) {
 			if(path.equals("/accueil.html")){
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/adminAccueil.html");
