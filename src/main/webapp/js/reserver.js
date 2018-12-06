@@ -1,4 +1,17 @@
-//ajouter();
+
+
+
+
+function isConnected(){
+	if(sessionStorage.getItem("isconnected") == null){
+		document.getElementById("form").setAttribute("hidden","hidden");
+		document.getElementById("alert").removeAttribute("hidden");
+	}else{
+		document.getElementById("alert").setAttribute("hidden","");
+		document.getElementById("form").removeAttribute("hidden");
+	}
+}
+
 function ajouter() {
 	var jour = document.getElementById("date").value;
 	var nbPersonne = document.getElementById("nbrPersonnes").value;
@@ -9,7 +22,7 @@ function ajouter() {
 		jour: jour,
 		nbPersonne : nbPersonne,
 		utilisateur : {id: idUtilisateur},
-		choixResto: idRestaurant,
+		//choixResto: idRestaurant,
 		horaireSelectionne: {id: idTrancheHoraire}
 	}
 	
