@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="isConnected()">
 <header class="header">
     <div class="container-fluid">
 
@@ -37,9 +37,14 @@
         swiitch();
     </script>
 </header>
+<div class=container>
+	<div class=row>
+	<div class="alert alert-primary mx-auto" id=alert role="alert">
+		Vous n'êtes pas connecté. Vous ne pouvez pas réserver.</div>
+	</div>
 
-<div class="row">
-    <form>
+<div class="row" id="form">
+		<form >
         <p>Choix du restaurant</p>
         <div class="form-group">
             <select class="form-control" id="restaurant">
@@ -67,6 +72,8 @@
         <button type="button" id="btnSubmit" onclick="ajouter()">Submit</button>
     </form>
 </div>
+</div>
+
 
 
 <footer class="footer">

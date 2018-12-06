@@ -21,7 +21,6 @@ public class Reservation implements java.io.Serializable
     
     private java.lang.Integer nbPersonne;
     
-
     
 //    @javax.persistence.ManyToOne(
 //    	fetch = javax.persistence.FetchType.LAZY
