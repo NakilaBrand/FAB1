@@ -9,19 +9,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.ginc.fab1.bean.Utilisateur;
+
 /**
  * Servlet implementation class ServletAjoutAvis
  */
-@WebServlet(urlPatterns = { "/AdminPlat.html", "/adminCarte.html", "/fr" })
+@WebServlet(urlPatterns = { "/AdminReservations.html", "/AdminPlat.html", "/adminCarte.html", "/adminModifPlat.html",
+		"/adminCommandes.html", "adminAcceuil.html" })
 public class ServletRedirection extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String path = request.getServletPath();
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF"+path);
-		rd.forward(request, response);
+		Utilisateur user = (Utilisateur) request.getSession().getAttribute("utilisateur");
+
+		response.setHeader("Cache-Control", "no-cache");
+		System.out.println(user.getEmail() + "   " + user.getIsAdmin());
+		if (user != null && user.getIsAdmin()) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF" + path);
+			rd.forward(request, response);
+		} else {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/erreur.html");
+			rd.forward(request, response);
+		}
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

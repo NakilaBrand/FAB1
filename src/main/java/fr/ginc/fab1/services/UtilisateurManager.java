@@ -95,7 +95,7 @@ public class UtilisateurManager {
 			HttpSession session = httpServletRequest.getSession();
 			
 			session.setAttribute("utilisateur", user);
-			System.out.println("SESSION OKKKKKKKKK");
+			
 
 			return Response.ok().build();
 		}
