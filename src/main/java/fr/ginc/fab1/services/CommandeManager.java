@@ -27,6 +27,7 @@ public class CommandeManager {
 	List<Commande> listeCommandes;
 	private GenericDao<Commande, Integer> genericDao;
 	private List<Plat> panier;
+	private Integer choixResto;
 	private GenericDao<Plat,Integer > platDAO;
 	@Context
 	private HttpServletRequest httpServletRequest;
@@ -58,6 +59,7 @@ public class CommandeManager {
 	{
 		HttpSession session = httpServletRequest.getSession();
 		panier = (List<Plat>) session.getAttribute("panier");
+		choixResto = (Integer) session.getAttribute("choixResto");
 		Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
 		
 		Commande commande = new Commande();
@@ -67,6 +69,7 @@ public class CommandeManager {
 		commande.setUtilisateur(user);
 //		commande.setHeure(heure);
 //		commande.setJour(jour);
+		commande.setChoixRestaurant(choixResto);
 		
 		if(panier != null){
 			try {

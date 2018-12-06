@@ -20,6 +20,8 @@ public class Commande implements java.io.Serializable
     private java.lang.String statut;
     // "commandee"  ou "livree"
     
+    private java.lang.Integer choixRestaurant;
+    
     
     
     @javax.persistence.ManyToMany(
@@ -69,6 +71,14 @@ public class Commande implements java.io.Serializable
     
     public java.lang.String getStatut() {
         return this.statut;
+    }
+    
+    public void setChoixRestaurant(java.lang.Integer choixRestaurant) {
+        this.choixRestaurant = choixRestaurant;
+    }
+    
+    public java.lang.Integer getChoixRestaurant() {
+        return this.choixRestaurant;
     }
     
 
