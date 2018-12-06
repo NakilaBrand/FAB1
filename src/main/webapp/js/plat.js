@@ -1,11 +1,10 @@
-var plat = $_GET('plat');
+console.log("1");
+var plat = $_GET('id');
+console.log(plat);
 afficherLePlat(plat);
 
-
-
-
-function afficherLePlat(id){
-	fetch("/FAB1/service/plats/" + id
+function afficherLePlat(plat){
+	fetch("/FAB1/service/plats/" + plat
     ).then(function (reponse) {
         return reponse.json();
     }).then(function (data) {
@@ -32,7 +31,6 @@ function afficherLePlat(id){
         ajoutPlat.innerHTML = "";
         ajoutPlat.innerHTML = "<button class=\"buttoncarte\" onclick=\"ajouterPanier("+plat.id+")\"><img src=\"icons/AjouterNoir.png\" height=\"20\"/></button>";
         
-        })
 
     });
 }
