@@ -32,7 +32,8 @@ function connectUser() {
     })
         .then(function functionName (response) {
             if (response.ok) {
-                alert("connecté");
+            	
+            	 
                 return;
             }
             return response.json();
@@ -48,9 +49,15 @@ function connectUser() {
     }).then(function f(){
     	if(!error){
     	    sessionStorage.setItem("isconnected",true);
-    		location.replace(apiHost+"FAB1")
+    		location.replace(apiHost+"FAB1/accueil.html")
+    		
     	}
-    })
+    }).then(function() {
+		Toastify({
+      		  text: "Connecté",
+      		  duration: 3000
+      		}).showToast();
+	});
     return error;
 
 }

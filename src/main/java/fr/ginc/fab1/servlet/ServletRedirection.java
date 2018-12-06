@@ -14,8 +14,8 @@ import fr.ginc.fab1.bean.Utilisateur;
 /**
  * Servlet implementation class ServletAjoutAvis
  */
-@WebServlet(urlPatterns = { "/AdminReservations.html", "/AdminPlat.html", "/adminCarte.html", "/adminModifPlat.html",
-		"/adminCommandes.html", "adminAcceuil.html" })
+@WebServlet(urlPatterns = {"/accueil.html", "/AdminReservations.html", "/AdminPlat.html", "/adminCarte.html", "/adminModifPlat.html",
+		"/adminCommandes.html", "adminAccueil.html" })
 public class ServletRedirection extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -27,9 +27,17 @@ public class ServletRedirection extends HttpServlet {
 		response.setHeader("Cache-Control", "no-cache");
 		System.out.println(user.getEmail() + "   " + user.getIsAdmin());
 		if (user != null && user.getIsAdmin()) {
+			if(path.equals("/accueil.html")){
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/adminAccueil.html");
+				rd.forward(request, response);
+			}
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF" + path);
 			rd.forward(request, response);
 		} else {
+			if(path.equals("/accueil.html")){
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accueil.html");
+				rd.forward(request, response);
+			}
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/erreur.html");
 			rd.forward(request, response);
 		}
