@@ -129,9 +129,6 @@ form {
     width: 30%;
 }
 
-.label {
-    margin-top: -25px;
-}
 
 input {
     /* Pour s'assurer que tous les champs texte ont la même police.
@@ -148,8 +145,7 @@ input {
     text-align: center;
 }
 #alertpasswordconfirm, #alertmail, #alertpassword, #alertphone {
-    visibility: hidden;
-    display: inline-block;
+    display: none;
     font: 1em sans-serif;
     margin-top: 10px;
     position: center;
