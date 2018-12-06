@@ -23,22 +23,23 @@ function recupererPanier(){
 		
 		var index=0;	
 
-
+var prixTotal=0;
 		data/*.plats*/.forEach(function (plat){
 			var tr = document.createElement('tr');
 			//td.setAttribute('class',"coucou c'est la classe")
 			
 			tr.innerHTML ="<td>"+plat.nom+"</td><td>"+plat.prix+"</td><td><button class=\"buttonNote\" type=\"rsvBtn\" onclick=\"supprimerPanier("+index+")\"><img src=\"icons/remove.png\" height=\"15\"/></button></td>"
 			
-			
 			panierPlat.appendChild(tr);
+			prixTotal += plat.prix;
+			
 			index++;
 		})
 		
 		tr= document.createElement('tr');
 		var total = "<tr>";
 		total += "<th> </th>";
-		total += "<th>Total</th>";
+		total += "<th>Total : "+prixTotal+"</th>";
 		total += "<th><button class=\"buttonCmd\" onclick=\"validerCommande()\">Commander</button></th>";
 		total += "</tr>";
 		tr.innerHTML = total;
