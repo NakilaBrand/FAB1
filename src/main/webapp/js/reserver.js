@@ -9,7 +9,7 @@ function ajouter() {
 		jour: jour,
 		nbPersonne : nbPersonne,
 		utilisateur : {id: idUtilisateur},
-		restaurant: {id: idRestaurant},
+		choixResto: idRestaurant,
 		horaireSelectionne: {id: idTrancheHoraire}
 	}
 	
