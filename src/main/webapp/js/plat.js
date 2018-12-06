@@ -47,7 +47,12 @@ function ajouterPanier(id) {
             "Content-Type": "application/json; charset=utf-8"
         },
         body: JSON.stringify(data)
-    });
+    }).then(function functionName(response) {
+        Toastify({
+        	text: "Le plat a été ajouté au panier",
+    	  duration: 3000
+    	}).showToast();
+      });
 
 }
 

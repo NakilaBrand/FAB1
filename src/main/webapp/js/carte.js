@@ -31,8 +31,6 @@ function afficherListe() {
             
             div.innerHTML = plat_design;
             
-            
-            
             div.style.backgroundImage = "url(\""+plat.imageURL+"\")";
             div.style.height = "400px";
             div.style.backgroundSize = "cover";
@@ -52,7 +50,16 @@ function ajouterPanier(id) {
             "Content-Type": "application/json; charset=utf-8"
         },
         body: JSON.stringify(data)
-    });
+    }).then(function functionName(response) {
+        Toastify({
+        	text: "Le plat a été ajouté au panier",
+    	  duration: 3000
+    	}).showToast();
+      });
+//    Toastify({
+//  	  text: "Le plat a été ajouté au panier",
+//  	  duration: 3000
+//  	}).showToast();
 
 }
 
