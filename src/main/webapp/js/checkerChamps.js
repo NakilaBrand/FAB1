@@ -4,7 +4,7 @@
 function setAlertPhone(){
 	var phone = document.getElementById("alertphone");
 	var stylePhone = phone.style;
-	stylePhone.visibility = "visible";
+	stylePhone.display = "inline-block";
 	if(checkPhone()){
 		phone.className = "alert alert-success"
 		phone.innerText = "Ok"
@@ -17,7 +17,7 @@ function setAlertPhone(){
 function setAlertPassword(){
 	var password = document.getElementById("alertpassword");
 	var stylePassword = password.style;
-	stylePassword.visibility = "visible";
+	stylePassword.display = "inline-block";
 	if(checkPass()){
 		password.className = "alert alert-success"
 		password.innerText = "Ok"
@@ -29,7 +29,7 @@ function setAlertPassword(){
 function setAlertPasswordConfirm(){
 	var passConf = document.getElementById("alertpasswordconfirm");
 	var stylePasswordConf = passConf.style;
-	stylePasswordConf.visibility = "visible";
+	stylePasswordConf.display = "inline-block";
 	if(checkConfirm()){
 		passConf.className = "alert alert-success"
 		passConf.innerText = "Ok"
@@ -42,7 +42,7 @@ function setAlertPasswordConfirm(){
 function setAlertEmail(){
 	var email = document.getElementById("alertmail");
 	var styleEmail = email.style;
-	styleEmail.visibility = "visible";
+	styleEmail.display = "inline-block";
 	if(checkEmail()){
 		email.className = "alert alert-success"
 		email.innerText = "Ok"

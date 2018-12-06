@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>La Fourchette à Bretelles - Accueil</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 <body>
 <header class="header">
@@ -16,7 +18,7 @@
                 <li><a href="accueil.html" class="active">Accueil</a></li>
                 <li><a href="carte.html">Carte</a></li>
                 <li><a href="reservation.html">Reserver</a></li>
-                <li><a href=".html">Nous trouver</a></li>
+                <li><a href="noustrouver.html">Nous trouver</a></li>
                 <li id="connectSwitch"><a href="connexion.html">Se Connecter <img src="icons/UserBlanc.png"
                                                                                   height="30"/></a></li>
                 <li><a href="panier.html"><img src="icons/PanierBlanc.png" height="30"/></a></li>
@@ -38,20 +40,29 @@
     </script>
 </header>
 
+<div id="button">
+    <a href="carte.html">
+        <button class="button" type="cmdBtn">Commander</button>
+    </a>
+    <a href="reservation.html">
+        <button class="button" type="rsvBtn">Reserver</button>
+    </a>
+</div>
 <div class="container">
     <div class="row">
 
         <div class="col-12 col-md-4">
             <section class="actu">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-8"><h3>Actualité</h3></div>
-                        <div class="col-4"><button class="button">Valider</button></div>
-                    </div>
-                </div>
-
-
-                <textarea class="notearea" name="actus" id="" cols="30" rows="10"></textarea>
+                <h3>Actualité</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dolores labore quod quos
+                    recusandae. Adipisci aliquam autem, corporis cum dolorem eius et, minus neque, nisi non odit officia
+                    perferendis quisquam?</p>
+                <p>Asperiores atque commodi delectus dolore, dolorum ex explicabo harum hic, itaque maiores modi quasi
+                    recusandae repellendus temporibus veritatis. Laborum quos, recusandae! Dolorem facere hic ipsum
+                    minima modi nesciunt quas voluptatum?</p>
+                <p>A accusamus aliquam aspernatur ea eos exercitationem, facilis id impedit magnam magni maxime
+                    necessitatibus nemo omnis ratione sequi sit soluta ullam ut veniam, veritatis? Amet cumque dolor
+                    earum ipsa velit.</p>
             </section>
         </div>
         <div class="col-12 col-md-8">
@@ -80,11 +91,13 @@
     </div>
 </div>
 
+
 <footer class="footer">
     <div id="finBody"><p>FINBODY</p></div>
     <nav class="fixed-bottom">
         <p id="copyright">@ Copyright Fourchette à Bretelles</p>
     </nav>
 </footer>
+<script src="js/accueil.js"></script>
 </body>
 </html>
