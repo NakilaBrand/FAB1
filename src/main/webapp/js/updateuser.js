@@ -16,7 +16,7 @@ function setUser() {
 		user.password = document.getElementById("password").value;
 		updateUser();
 	} else {
-		afficheErreur("Veuillez confirmer votre mot de passe plz");
+		afficheErreur("Veuillez renseignez votre mot de passe pour effectuer la modification plz wesh wesh ");
 	}
 }
 
@@ -46,6 +46,12 @@ function updateUser() {
 		if (reponse.ok) {
 			//pop un plus joli :
 			alert("Maj effectuée");
+		}else{
+			return reponse.json();
+		}
+	}).then(function f(errJson){
+		if(errJson != null || errJson != undefined){
+			alert(errJson);
 		}
 	})
 }
@@ -73,7 +79,7 @@ function afficherUser() {
          document.getElementById("nom").setAttribute("value",user.nom);
          document.getElementById("telephone").setAttribute("value",user.telephone);
          document.getElementById("mail").setAttribute("value",user.email);
-         document.getElementById("password").setAttribute("value",user.password);
+        // document.getElementById("password").setAttribute("value",user.password);
      });
 
 }
