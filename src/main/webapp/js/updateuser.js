@@ -8,6 +8,9 @@ var user = {
 var u;
 
 function setUser() {
+	if(!confirm("Êtes vous vraiment sur de vouloir effectuer ces modification ?")){
+		return;
+	}
 	user.nom = document.getElementById("nom").value;
 	user.prenom = document.getElementById("prenom").value;
 	user.telephone = document.getElementById("telephone").value;
