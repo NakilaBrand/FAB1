@@ -66,6 +66,8 @@ public class Reservation implements java.io.Serializable
         return this.nbPersonne;
     }
     
+    private java.lang.Integer choixRestaurant;
+    
 
     
 //    public void setRestaurant(Restaurant restaurant) {
@@ -76,6 +78,13 @@ public class Reservation implements java.io.Serializable
 //    public Restaurant getRestaurant() {
 //        return this.restaurant;
 //    }
+    public void setChoixRestaurant(java.lang.Integer choixRestaurant) {
+        this.choixRestaurant = choixRestaurant;
+    }
+    
+    public java.lang.Integer getChoixRestaurant() {
+        return this.choixRestaurant;
+    }
     
     public void setHoraireSelectionne(TrancheHoraire horaireSelectionne) {
         this.horaireSelectionne = horaireSelectionne;

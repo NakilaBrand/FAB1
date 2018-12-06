@@ -22,6 +22,7 @@ public class ReservationManager {
 	
 	List<Reservation> listeReservations;
 	private GenericDao<Reservation, Integer> genericDao;
+	private Integer choixResto;
 	@Context
 	private HttpServletRequest httpServletRequest;
 	
@@ -40,9 +41,12 @@ public class ReservationManager {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Reservation ajouterReservation(Reservation reservation)
 	{	
+		
 		HttpSession session = httpServletRequest.getSession();
 		Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
 		reservation.setUtilisateur(user);
+		choixResto = (Integer) session.getAttribute("choixResto");
+		reservation.setChoixRestaurant(choixResto);
 		try {
 			genericDao.add(reservation);
 		} catch (Exception e) {
