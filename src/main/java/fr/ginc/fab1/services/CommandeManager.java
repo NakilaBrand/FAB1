@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 
 import fr.ginc.fab1.bean.Commande;
 import fr.ginc.fab1.bean.Plat;
+import fr.ginc.fab1.bean.Utilisateur;
 import fr.ginc.fab1.dao.GenericDao;
 import fr.ginc.fab1.dao.GenericDaoImpl;
 import fr.ginc.fab1.exception.DAOException;
@@ -52,14 +54,29 @@ public class CommandeManager {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Commande ajouterCommande(Commande Commande)
+	public Commande ajouterCommande()
 	{
-		try {
-			genericDao.add(Commande);
-		} catch (DAOException e) {
-			new DAOException("La commande n'a pas été prise en compte");
+		HttpSession session = httpServletRequest.getSession();
+		panier = (List<Plat>) session.getAttribute("panier");
+		Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
+		
+		Commande commande = new Commande();
+		
+		commande.setPlatsCommandes(panier);
+		commande.setStatut("commandee");
+		commande.setUtilisateur(user);
+//		commande.setHeure(heure);
+//		commande.setJour(jour);
+		
+		if(panier != null){
+			try {
+				//envoyerIdResto(id)
+				genericDao.add(commande);
+			} catch (DAOException e) {
+				new DAOException("La commande n'a pas été prise en compte");
+			}
 		}
-		return Commande;
+		return commande;
 	}
 	
 	@POST
@@ -99,6 +116,19 @@ public class CommandeManager {
 		if(panier == null){
 			List<Plat> panier = new ArrayList<>();
 		}
+		
+		return panier;
+	}
+	
+	@GET
+	@Path("/panier/remove/{id:\\d+}")
+	public List<Plat> supprimerArticle(@PathParam("id") int id)
+	{
+		//recuperer le panier en session
+		HttpSession session = httpServletRequest.getSession();
+		panier = (List<Plat>) session.getAttribute("panier");
+		
+		panier.remove(id);
 		
 		return panier;
 	}

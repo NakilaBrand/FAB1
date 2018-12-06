@@ -18,6 +18,7 @@ public class Commande implements java.io.Serializable
     private java.util.Date heure;
     
     private java.lang.String statut;
+    // "commandee"  ou "livree"
     
     
     
@@ -26,6 +27,7 @@ public class Commande implements java.io.Serializable
     	fetch = javax.persistence.FetchType.LAZY
     )
     java.util.Collection<Plat> platsCommandes;
+    
     @javax.persistence.ManyToOne(
         cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY

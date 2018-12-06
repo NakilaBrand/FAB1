@@ -9,16 +9,33 @@
 <body>
 <header class="header">
     <div class="container-fluid">
+
         <img src="icons/LogoFAB-02.png" id="logo" height="120px"/>
-        <ul>
-            <li><a href="accueil.html">Accueil</a></li>
-            <li><a href="carte.html">Carte</a></li>
-            <li><a href="reservation.html">Reserver</a></li>
-            <li><a href="">Nous trouver</a></li>
-            <li><a href="connexion.html"> Se Connecter  <img src="icons/UserBlanc.png" height="30"/></a></li>
-            <li><a href="panier.html"><img src="icons/PanierBlanc.png" height="30"/></a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="carte.html" class="active">Carte</a></li>
+                <li><a href="reservation.html">Reserver</a></li>
+                <li><a href="noustrouver.html">Nous trouver</a></li>
+                <li id="connectSwitch"><a href="connexion.html">Se Connecter <img src="icons/UserBlanc.png"
+                                                                                  height="30"/></a></li>
+                <li><a href="panier.html"><img src="icons/PanierBlanc.png" height="30"/></a></li>
+            </ul>
+        </nav>
     </div>
+    <script>
+        function swiitch() {
+            console.log("ca passe ici et c'est " + sessionStorage.getItem("isconnected"))
+            if (sessionStorage.getItem("isconnected") == "true") {
+                document.getElementById("connectSwitch").innerHTML = '<a href="monCompte.html">Mon compte  <img src="icons/UserBlanc.png" height="30"/></a>';
+            } else {
+                console.log("c'est faux là et sa passe")
+                document.getElementById("connectSwitch").innerHTML = '<a href="connexion.html">Se Connecter <img src="icons/UserBlanc.png" height="30"/></a>';
+            }
+        }
+
+        swiitch();
+    </script>
 </header>
 
 <div class="container">
@@ -32,11 +49,11 @@
         <div class="col-12 col-md-8">
             <section class="descriptionPlat">
                 <div id="titlePlat" class="row">
-                    <div id="titrePlat" class="col-12 col-md-7">
-                        <h3>Nom du Plat</h3>
+                    <div  class="col-12 col-md-7">
+                        <h3 id="titrePlat"></h3>
                     </div>
-                    <div id="prixPlat" class="col-6 col-md-3">
-                        <h3>--,--€</h3>
+                    <div  class="col-6 col-md-3">
+                        <h3 id="prixPlat"></h3>
                     </div>
                     <div id="ajoutPlat" class="col-6 col-md-2">
                         <img src="icons/AjouterNoir.png" height="50"/>
@@ -44,23 +61,9 @@
                 </div>
 
 
-                <div id="descrPlatPlat" class="row">
-                    <div class="col-12">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam at consequuntur ea
-                            est
-                            expedita ipsum laboriosam libero molestiae natus obcaecati odio perspiciatis quisquam
-                            recusandae
-                            sapiente, sed soluta voluptatibus voluptatum!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam at consequuntur ea
-                            est
-                            expedita ipsum laboriosam libero molestiae natus obcaecati odio perspiciatis quisquam
-                            recusandae
-                            sapiente, sed soluta voluptatibus voluptatum!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam at consequuntur ea
-                            est
-                            expedita ipsum laboriosam libero molestiae natus obcaecati odio perspiciatis quisquam
-                            recusandae
-                            sapiente, sed soluta voluptatibus voluptatum!</p>
+                <div class="row">
+                    <div class="col-12" id="descrPlatPlat">
+                        
                     </div>
                 </div>
 
@@ -78,6 +81,6 @@
         <p id="copyright">@ Copyright Fourchette à Bretelles</p>
     </nav>
 </footer>
-
+<script src="js/plat.js"></script>
 </body>
 </html>
