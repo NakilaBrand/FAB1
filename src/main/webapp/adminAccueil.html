@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>La Fourchette à Bretelles - Accueil</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="container-fluid">
+
+        <img src="icons/LogoFAB-02.png" id="logo" height="120px"/>
+        <nav>
+            <ul>
+                <li><a href="accueil.html" class="active">Accueil</a></li>
+                <li><a href="carte.html">Carte</a></li>
+                <li><a href="reservation.html">Reserver</a></li>
+                <li><a href="noustrouver.html">Nous trouver</a></li>
+                <li id="connectSwitch"><a href="connexion.html">Se Connecter <img src="icons/UserBlanc.png"
+                                                                                  height="30"/></a></li>
+                <li><a href="panier.html"><img src="icons/PanierBlanc.png" height="30"/></a></li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        function swiitch() {
+            console.log("ca passe ici et c'est " + sessionStorage.getItem("isconnected"))
+            if (sessionStorage.getItem("isconnected") == "true") {
+                document.getElementById("connectSwitch").innerHTML = '<a href="monCompte.html">Mon compte  <img src="icons/UserBlanc.png" height="30"/></a>';
+            } else {
+                console.log("c'est faux là et sa passe")
+                document.getElementById("connectSwitch").innerHTML = '<a href="connexion.html">Se Connecter <img src="icons/UserBlanc.png" height="30"/></a>';
+            }
+        }
+
+        swiitch();
+    </script>
+</header>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12 col-md-4">
+            <section class="actu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-8"><h3>Actualité</h3></div>
+                        <div class="col-4"><button class="button">Valider</button></div>
+                    </div>
+                </div>
+
+
+                <textarea class="notearea" name="actus" id="" cols="30" rows="10"></textarea>
+            </section>
+        </div>
+        <div class="col-12 col-md-8">
+            <section class="platJour">
+                <h3>Plat du Jour</h3>
+                <div class="container">
+                    <div class="row">
+                        <div id="imgPlatAccueil" class="col-12 col-md-4">
+                            <!--  <img url="http://image.noelshack.com/fichiers/2018/49/2/1543928370-boufbourg.jpg"
+                                  width="230px" id="photo"/> -->
+
+
+                        </div>
+
+                        <div class="col-12 col-md-8">
+                            <h4 id="nomPlat"></h4>
+                            <p><span id="platDuMoment"></span></p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <div id="finBody"><p>FINBODY</p></div>
+    <nav class="fixed-bottom">
+        <p id="copyright">@ Copyright Fourchette à Bretelles</p>
+    </nav>
+</footer>
+</body>
+</html>
