@@ -77,22 +77,22 @@ a:hover {
 }
 
 /*Panier*/
-#panier_plat {
+#tableau {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-#panier_plat td, #panier_plat th {
+#tableau td, #panier_plat th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#panier_plat tr:nth-child(even){background-color: #f2f2f2;}
+#tableau tr:nth-child(even){background-color: #f2f2f2;}
 
-#panier_plat tr:hover {background-color: #ddd;}
+#tableau tr:hover {background-color: #ddd;}
 
-#panier_plat th {
+#tableau th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
