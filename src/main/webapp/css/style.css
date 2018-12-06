@@ -46,6 +46,15 @@ li>a:hover {
     color: black;
 }
 
+#seConnecter:hover #iconUser1{
+	display: none;
+	
+}
+#seConnecter:hover #iconUser2{
+	display: inline-block;
+	
+}
+
 .active {
     background-color: #fff;
     color: black;
