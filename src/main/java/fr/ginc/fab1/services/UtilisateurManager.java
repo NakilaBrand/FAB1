@@ -93,11 +93,9 @@ public class UtilisateurManager {
 		if (user.getPassword().trim().equals(u.getPassword().trim())) {
 			// mise en sessions
 			HttpSession session = httpServletRequest.getSession();
-			System.out.println(user.getIsAdmin());
+			
 			session.setAttribute("utilisateur", user);
-			user = (Utilisateur) session.getAttribute("utilisateur");
-			System.out.println("---------------");
-			System.out.println(user.getIsAdmin());
+			
 
 			return Response.ok().build();
 		}

@@ -30,7 +30,7 @@ public class ServletRedirection extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF" + path);
 			rd.forward(request, response);
 		} else {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/error.html");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/erreur.html");
 			rd.forward(request, response);
 		}
 
