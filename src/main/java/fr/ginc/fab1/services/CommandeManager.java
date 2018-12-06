@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -99,6 +100,19 @@ public class CommandeManager {
 		if(panier == null){
 			List<Plat> panier = new ArrayList<>();
 		}
+		
+		return panier;
+	}
+	
+	@GET
+	@Path("/panier/remove/{id:\\d+}")
+	public List<Plat> supprimerArticle(@PathParam("id") int id)
+	{
+		//recuperer le panier en session
+		HttpSession session = httpServletRequest.getSession();
+		panier = (List<Plat>) session.getAttribute("panier");
+		
+		panier.remove(id);
 		
 		return panier;
 	}

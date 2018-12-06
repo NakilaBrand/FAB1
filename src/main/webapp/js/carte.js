@@ -9,7 +9,7 @@ function afficherListe() {
     }).then(function (data) {
         var listePlat = document.getElementById('liste_plat');
         listePlat.innerHTML = "";
-
+        
 
         data.plats.forEach(function (plat) {
             var div = document.createElement('div');
