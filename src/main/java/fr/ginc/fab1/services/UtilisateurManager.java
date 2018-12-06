@@ -121,6 +121,12 @@ public class UtilisateurManager {
 		user.setTelephone(u.getTelephone());
 		// TODO encrypt
 		user.setPassword(u.getPassword());
+		try {
+			daoInt.update(user);
+		} catch (Exception e) {
+			errs.add("Erreur serveur");
+			return Response.status(Response.Status.BAD_REQUEST).entity(errs).build();
+		}
 		return Response.ok().build();
 	}
 

@@ -3,6 +3,9 @@
  */
 function desinscription() {
 
+	if(!confirm("Êtes vous vraiment sur de vouloir vous désinscrire ?")){
+		return;
+	}
     fetch(apiHost+"FAB1/service/utilisateurs/desinscription", {
         method: 'delete',
         headers: {
