@@ -1,67 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Title</title>
+    <meta charset="UTF-8">
+    <title>Plat</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="col-12 col-md-4">
-		<section class="restaurantChoice">
-			<h3>Nos Restaurants</h3>
-			<form>
-				<select name="restaurant" size="1" id="restaurant"
-					onchange="afficherListe()"><!-- tricher avec un refresh? -->
-					
-					<OPTION value="1">Rennes
-					<OPTION value="2">Nantes
-					<OPTION value="3">Brest
-				</select>
-			</form>
-		</section>
-	</div>
+<header class="header">
+    <div class="container-fluid">
+        <img src="icons/LogoFAB-02.png" id="logo" height="120px"/>
+        <ul>
+            <li><a href="adminAccueil.html">Accueil</a></li>
+            <li><a href="adminCarte.html">Carte</a></li>
+            <li><a href="AdminReservations.html">Reservations</a></li>
+            <li><a href="adminCommandes.html"  class="active">Commandes</a></li>
+            <li><a href="connexion.html"> ADMIN <img src="icons/UserBlanc.png" height="30"/></a></li>
+        </ul>
+    </div>
+</header>
+<div class="col-12 col-md-4">
+    <section class="restaurantChoice">
+        <h3>Nos Restaurants</h3>
+        <form>
+            <select name="restaurant" size="1" id="restaurant"
+                    onchange="afficherListe()"><!-- tricher avec un refresh? -->
 
-	<table id="commandes" style="width: 100%">
-		<tr>
-			<th>ID</th>
-			<th>Jour de la commande</th>
-			<th>Heure de la commande</th>
-			<th>Statut de la commande</th>
-			<th>Plats commandés</th>
-			<th>Client</th>
-		</tr>
-		
-	</table>
+                <OPTION value="1">Rennes
+                <OPTION value="2">Nantes
+                <OPTION value="3">Brest
+            </select>
+        </form>
+    </section>
+</div>
+
+<table id="commandes" style="width: 100%">
+    <tr>
+        <th>ID</th>
+        <th>Jour de la commande</th>
+        <th>Heure de la commande</th>
+        <th>Statut de la commande</th>
+        <th>Plats commandés</th>
+        <th>Client</th>
+    </tr>
+
+</table>
 
 
-	<script>
-	 afficherListe();
-function afficherListe(){
-	var choix = document.getElementById("restaurant").value;
-    fetch("/FAB1/service/restaurants/" + choix
-    ).then(function (reponse) {
-        return reponse.json();
-    }).then(function (data) {
-        var listecommande = document.getElementById('commandes');
-        
-   data.commande.forEach(function (laCommande) {
-            var tr = document.createElement('tr');
-            tr.innerHTML = 
-            '<td>'+laCommande.id+'</td>'
-            +'<td>'+laCommande.jour+'</td>'
-            +'<td>'+laCommande.heure+'</td>'
-            +'<td>'+laCommande.statut+'</td>'
-            +'<td>'
-            +laCommande.platsCommandes.forEach(function (plat){plat.nom })
-            //+laCommande.platsCommandes
-            +'</td>'
-            +'<td>'+laCommande.utilisateur+'</td>'
-            
-            listecommande.appendChild(tr);
-        })
+<script>
+    afficherListe();
 
-    });
-    
-}
+    function afficherListe() {
+        var choix = document.getElementById("restaurant").value;
+        fetch("/FAB1/service/restaurants/" + choix
+        ).then(function (reponse) {
+            return reponse.json();
+        }).then(function (data) {
+            var listecommande = document.getElementById('commandes');
+
+            data.commande.forEach(function (laCommande) {
+                var tr = document.createElement('tr');
+                tr.innerHTML =
+                    '<td>' + laCommande.id + '</td>'
+                    + '<td>' + laCommande.jour + '</td>'
+                    + '<td>' + laCommande.heure + '</td>'
+                    + '<td>' + laCommande.statut + '</td>'
+                    + '<td>'
+                    + laCommande.platsCommandes.forEach(function (plat) {
+                        plat.nom
+                    })
+                    //+laCommande.platsCommandes
+                    + '</td>'
+                    + '<td>' + laCommande.utilisateur + '</td>'
+
+                listecommande.appendChild(tr);
+            })
+
+        });
+
+    }
 
 
 </script>
