@@ -39,7 +39,7 @@ public class PlatManager {
 	    @Path("/{id:\\d+}")
 	    public Plat obtenirPlat(@PathParam("id") int id)
 	    {    
-	        return platDAO.findById(getClass(), id);
+	        return platDAO.findById(Plat.class, id);
 	    }
 	      
 	    
