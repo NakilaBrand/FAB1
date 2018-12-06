@@ -1,7 +1,6 @@
 //ajouter();
 function ajouter() {
-	console.log(document.getElementById("date").value);
-	var jour = "2018-01-01";
+	var jour = document.getElementById("date").value;
 	var nbPersonne = document.getElementById("nbrPersonnes").value;
 	var idRestaurant = document.getElementById("restaurant").value;
 	var idTrancheHoraire = document.getElementById("trancheHoraire").value;
