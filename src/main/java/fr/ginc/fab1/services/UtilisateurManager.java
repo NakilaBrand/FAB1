@@ -109,6 +109,10 @@ public class UtilisateurManager {
 	public Response updateUtilisateur(Utilisateur u) {
 		HttpSession session = httpServletRequest.getSession();
 		Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
+		List<String> errs = CheckUser.check(u);
+		if(!errs.isEmpty() && verifEmail(u,errs)){
+			return Response.status(Response.Status.BAD_REQUEST).entity(errs).build();
+		}
 		
 		user.setEmail(u.getEmail());
 		user.setNom(u.getNom());
@@ -118,6 +122,23 @@ public class UtilisateurManager {
 		// TODO encrypt
 		user.setPassword(u.getPassword());
 		return Response.ok().build();
+	}
+
+	private boolean verifEmail(Utilisateur u , List<String> errs) {
+		try {
+			
+			Utilisateur isPresent = daoStr.findByAttr(Utilisateur.class, "email", u.getEmail());
+
+			if (isPresent != null) {
+				errs.add("Cet Email existe déja !");
+			} else {
+				return true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	@Path("/desinscription")
