@@ -1,6 +1,15 @@
 recupererPanier();
 var data = {};
 var apiHost = "http://localhost:8080/"
+	
+
+function isConnected() {
+	if (sessionStorage.getItem("isconnected") == null) {
+		document.getElementById("alert").removeAttribute("hidden");
+	} else {
+		document.getElementById("alert").setAttribute("hidden", "");
+	}
+}
 
 function recupererPanier() {
 
