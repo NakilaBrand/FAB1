@@ -1,14 +1,16 @@
 afficherListe();
-accessOrder();
+//accessOrder();
 function accessOrder(){
 	var buttons = document.getElementsByClassName("buttoncarte");
 	console.log(buttons)
 	if(sessionStorage.getItem("isconnected") == null){
+		console.log("notConnected")
 		Array.prototype.filter.call(buttons, function(button){
 		    button.setAttribute("hidden", "hidden");
 		}); 
 	}else{
 		Array.prototype.filter.call(buttons, function(button){
+			console.log("Connected")
 		    button.removeAttribute("hidden");
 		});
 	}
