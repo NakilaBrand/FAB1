@@ -524,6 +524,7 @@ input:focus     {
 
 .imgCarte {
     width: 350px;
+    margin: 5px;
 }
 
 .plat__title {
@@ -543,7 +544,7 @@ input:focus     {
 
 .plat {
     margin: 15px;
-    padding: 15px;
+    /*padding: 15px;*/
     position: relative;
     text-align: center;
 }
