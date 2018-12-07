@@ -3,6 +3,8 @@ package fr.ginc.fab1.bean;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @javax.persistence.Entity
 
 public class Commande implements java.io.Serializable
@@ -34,6 +36,7 @@ public class Commande implements java.io.Serializable
         cascade = {javax.persistence.CascadeType.ALL},
     	fetch = javax.persistence.FetchType.LAZY
     )
+    @JsonIgnore
     Utilisateur utilisateur;
 
     
