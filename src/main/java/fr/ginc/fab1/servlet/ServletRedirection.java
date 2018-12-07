@@ -14,7 +14,7 @@ import fr.ginc.fab1.bean.Utilisateur;
 /**
  * Servlet implementation class ServletAjoutAvis
  */
-@WebServlet(urlPatterns = {"/accueil.html", "/AdminReservations.html", "/AdminPlat.html", "/adminCarte.html", "/adminModifPlat.html",
+@WebServlet(urlPatterns = {"/adminMonCompte.html", "/accueil.html", "/AdminReservations.html", "/AdminPlat.html", "/adminCarte.html", "/adminModifPlat.html",
 		"/adminCommandes.html", "adminAccueil.html" })
 public class ServletRedirection extends HttpServlet {
 	private static final long serialVersionUID = 1L;
