@@ -47,13 +47,25 @@ li>a:hover {
 }
 
 #seConnecter:hover #iconUser1{
-	display: none;
-	
+	content: url('../icons/UserNoir.png');
+	background-size: 30px 30px;
 }
-#seConnecter:hover #iconUser2{
-	display: inline-block;
-	
+
+#joliPanier:hover #iconPanier{
+	content: url('../icons/PanierNoir.png');
+	background-size: 30px 30px;
 }
+
+#seConnecter.active #iconUser1{
+	content: url('../icons/UserNoir.png');
+	background-size: 30px 30px;
+}
+
+#joliPanier.active #iconPanier{
+	content: url('../icons/PanierNoir.png');
+	background-size: 30px 30px;
+}
+
 
 .active {
     background-color: #fff;
