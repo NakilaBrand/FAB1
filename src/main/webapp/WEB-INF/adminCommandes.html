@@ -45,9 +45,13 @@
     </section>
 </div>
 
-<table id="commandes" style="width: 100%">
+<table id="tableau" style="width: 100%">
     <tr>
-
+        <th>Jour de la commande</th>
+        <th>Heure de la commande</th>
+        <th>Statut de la commande</th>
+        <th>Plats commandés</th>
+        <th>Client</th>
     </tr>
 
 </table>
@@ -68,7 +72,7 @@
         ).then(function (reponse) {
             return reponse.json();
         }).then(function (data) {
-            var listecommande = document.getElementById('commandes');
+            var listecommande = document.getElementById('tableau');
             listecommande.innerHTML =
                 '<th>ID</th>'
                 + '<th>Jour de la commande</th>'
