@@ -49,15 +49,18 @@ function connectUser() {
     }).then(function f(){
     	if(!error){
     	    sessionStorage.setItem("isconnected",true);
-    		location.replace(apiHost+"FAB1/accueil.html")
+    		location.replace(apiHost+"FAB1/accueil.html");
+    		sleep(1000);
+    		Toastify({
+        		  text: "Connecté",
+        		  duration: 3000
+        		}).showToast();
     		
     	}
-    }).then(function() {
-		Toastify({
-      		  text: "Connecté",
-      		  duration: 3000
-      		}).showToast();
-	});
+    });
     return error;
 
 }
+function sleep(ms) {
+	  return new Promise(resolve => setTimeout(resolve, ms));
+	}

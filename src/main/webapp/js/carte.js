@@ -50,6 +50,8 @@ function afficherListe() {
             div.style.height = "400px";
             div.style.backgroundSize = "cover";
             listePlat.appendChild(div);
+            accessOrder();
+            
         })
 
     }).then(function functionName(response) {
