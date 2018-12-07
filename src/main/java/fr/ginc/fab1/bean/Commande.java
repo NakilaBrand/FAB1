@@ -13,9 +13,9 @@ public class Commande implements java.io.Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private java.lang.Integer id;
     
-    private java.util.Date jour;
+    private String jour;
     
-    private java.util.Date heure;
+    private String heure;
     
     private java.lang.String statut;
     // "commandee"  ou "livree"
@@ -46,21 +46,21 @@ public class Commande implements java.io.Serializable
         return this.id;
     }
     
-    public void setJour(java.util.Date jour) {
+    public void setJour(String jour) {
         this.jour = jour;
     }
     
     
-    public java.util.Date getJour() {
+    public String getJour() {
         return this.jour;
     }
     
-    public void setHeure(java.util.Date heure) {
+    public void setHeure(String heure) {
         this.heure = heure;
     }
     
     
-    public java.util.Date getHeure() {
+    public String getHeure() {
         return this.heure;
     }
     

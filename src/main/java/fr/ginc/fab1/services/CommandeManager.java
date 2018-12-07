@@ -1,6 +1,7 @@
 package fr.ginc.fab1.services;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,8 @@ public class CommandeManager {
 	private GenericDao<Commande, Integer> genericDao;
 	private List<Plat> panier;
 	private Integer choixResto;
+	private String heure;
+	private String jour;
 	private GenericDao<Plat,Integer > platDAO;
 	@Context
 	private HttpServletRequest httpServletRequest;
@@ -55,11 +58,13 @@ public class CommandeManager {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Commande ajouterCommande()
+	public Commande ajouterCommande(Commande c)
 	{
 		HttpSession session = httpServletRequest.getSession();
 		panier = (List<Plat>) session.getAttribute("panier");
-		choixResto = (Integer) session.getAttribute("choixResto");
+		choixResto = c.getChoixRestaurant();
+		heure = c.getHeure();
+		jour = c.getJour();
 		Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
 		
 		Commande commande = new Commande();
@@ -136,6 +141,15 @@ public class CommandeManager {
 		panier.remove(id);
 		
 		return panier;
+	}
+	@POST
+	@Path("/panier/vider")
+	public void viderPanier()
+	{
+	
+		HttpSession session = httpServletRequest.getSession();
+		session.setAttribute("panier" , new ArrayList<Plat>());
+		
 	}
 	
 	
