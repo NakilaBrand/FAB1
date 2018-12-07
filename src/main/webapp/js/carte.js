@@ -1,5 +1,5 @@
 afficherListe();
-//accessOrder();
+
 function accessOrder(){
 	var buttons = document.getElementsByClassName("buttoncarte");
 	console.log(buttons)

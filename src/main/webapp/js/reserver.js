@@ -1,6 +1,6 @@
 
 
-
+var apiHost = "http://localhost:8080/"
 
 function isConnected(){
 	if(sessionStorage.getItem("isconnected") == null){
@@ -36,6 +36,7 @@ function ajouter() {
 		//return reponse.json();
 		console.log("OK");
 	}).then(function(donneesAuFormatJson) {
+		location.replace(apiHost+"FAB1/accueil.html");
 		//succes(JSON.stringify(donneesAuFormatJson));
 	});
 
