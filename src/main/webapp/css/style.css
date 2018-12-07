@@ -517,7 +517,8 @@ input:focus     {
 
 
 /* ! ! ! ! CARTE  ! ! ! !*/
-.div_plat {
+.div_plat #blackrow{
+    padding: 0px;
     width: 100%;
 }
 
