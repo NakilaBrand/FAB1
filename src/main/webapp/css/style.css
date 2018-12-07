@@ -142,6 +142,11 @@ a:hover {
     align-content: center;
 }
 
+.col-12.row.touslesplats{
+	padding-right:0px;
+}
+
+
 /* ! ! ! ! FORMULAIRES ! ! ! ! */
 
 form {

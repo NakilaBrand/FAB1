@@ -28,7 +28,7 @@ function afficherListe() {
 
         data.plats.forEach(function (plat) {
             var div = document.createElement('div');
-            div.setAttribute('class', "col-12 col-sm-6 col-md-4")
+            div.setAttribute('class', "col-12 col-sm-6 col-md-4 touslesplats")
             
             var plat_design = "<div class=\"container-fluid div_plat\">";
             plat_design += "<div class=\"row\" id=\"blackrow\">";
