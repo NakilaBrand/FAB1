@@ -1,5 +1,18 @@
 afficherListe();
-
+accessOrder();
+function accessOrder(){
+	var buttons = document.getElementsByClassName("buttoncarte");
+	console.log(buttons)
+	if(sessionStorage.getItem("isconnected") == null){
+		Array.prototype.filter.call(buttons, function(button){
+		    button.setAttribute("hidden", "hidden");
+		}); 
+	}else{
+		Array.prototype.filter.call(buttons, function(button){
+		    button.removeAttribute("hidden");
+		});
+	}
+}
 
 function afficherListe() {
     var choix = document.getElementById("restaurant").value;
@@ -21,10 +34,10 @@ function afficherListe() {
             plat_design += "<a style=\"text-decoration: none\" href=\"plats.html/?id="+plat.id+"\"><h3 class=\"cartetoplat\">"+ plat.nom +"</h3></a>";
             plat_design += "</div>";
             plat_design += "<div class=\"col-3\">";
-            plat_design += "<button class=\"buttoncarte\">Noter</button>";
+            plat_design += "<button class=\"buttoncarte\" hidden>Noter</button>";
             plat_design += "</div>";
             plat_design += "<div class=\"col-3\">";
-            plat_design += "<button class=\"buttoncarte\" onclick=\"ajouterPanier("+plat.id+")\"><img src=\"icons/AjouterNoir.png\" height=\"20\"/></button>";
+            plat_design += "<button class=\"buttoncarte\" hidden onclick=\"ajouterPanier("+plat.id+")\"><img src=\"icons/AjouterNoir.png\" height=\"20\"/></button>";
             plat_design += "</div>";
             plat_design += "</div>";
             plat_design += "</div>";
