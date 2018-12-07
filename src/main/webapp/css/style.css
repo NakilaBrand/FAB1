@@ -142,8 +142,11 @@ a:hover {
     align-content: center;
 }
 
-.col-12.row.touslesplats{
-	padding-right:0px;
+
+#liste_plat > div, #liste_plat > div > div{
+	padding:0px;
+	padding-right: 0px;
+    padding-left: 0px;
 }
 
 
