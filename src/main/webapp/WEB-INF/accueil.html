@@ -22,7 +22,7 @@
                 <li><a href="noustrouver.html">Nous trouver</a></li>
                 <li id="connectSwitch"><a href="connexion.html">Se Connecter <img src="icons/UserBlanc.png"
                                                                                   height="30"/></a></li>
-                <li><a href="panier.html"><img src="icons/PanierBlanc.png" height="30"/></a></li>
+                <li><a href="panier.html" id="joliPanier"><img src="icons/PanierBlanc.png" id="iconPanier" height="30"/></a></li>
             </ul>
         </nav>
     </div>
@@ -30,10 +30,10 @@
         function swiitch() {
             console.log("ca passe ici et c'est " + sessionStorage.getItem("isconnected"))
             if (sessionStorage.getItem("isconnected") == "true") {
-            	document.getElementById("connectSwitch").innerHTML = '<a id="seConnecter" href="monCompte.html">Mon compte  <img src="icons/UserBlanc.png" id="iconUser1" height="30"/><img src="icons/UserNoir.png" id="iconUser2" height="30" style="display:none"/></a>';
+            	document.getElementById("connectSwitch").innerHTML = '<a id="seConnecter" href="monCompte.html">Mon compte  <img src="icons/UserBlanc.png" id="iconUser1" height="30"/></a>';
             } else {
                 console.log("c'est faux là et sa passe")
-                document.getElementById("connectSwitch").innerHTML = '<a id="seConnecter" href="connexion.html">Se Connecter <img src="icons/UserBlanc.png" id="iconUser1" height="30"/><img src="icons/UserNoir.png" id="iconUser2" height="30" style="display:none"/></a>';
+                document.getElementById("connectSwitch").innerHTML = '<a id="seConnecter" href="connexion.html">Se Connecter <img src="icons/UserBlanc.png" id="iconUser1" height="30"/></a>';
             }
         }
 
