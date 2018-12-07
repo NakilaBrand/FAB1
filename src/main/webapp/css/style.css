@@ -517,6 +517,9 @@ input:focus     {
 
 
 /* ! ! ! ! CARTE  ! ! ! !*/
+.div_plat {
+    width: 100%;
+}
 
 #titlePlat {
     padding-left: 50px;

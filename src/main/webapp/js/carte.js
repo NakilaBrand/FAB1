@@ -30,7 +30,7 @@ function afficherListe() {
             var div = document.createElement('div');
             div.setAttribute('class', "col-12 col-sm-6 col-md-4")
             
-            var plat_design = "<div class=\"container-fluid\">";
+            var plat_design = "<div class=\"container-fluid div_plat\">";
             plat_design += "<div class=\"row\" id=\"blackrow\">";
             plat_design += "<div class=\"col-6\">";
             plat_design += "<a style=\"text-decoration: none\" href=\"plats.html/?id="+plat.id+"\"><h3 class=\"cartetoplat\">"+ plat.nom +"</h3></a>";
